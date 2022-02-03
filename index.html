@@ -1,4 +1,9 @@
+<!DOCTYPE html>
 <html>
+    <!-- link to use chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    
     <head>
         <meta charset="utf-8">
         <title>Cary Crime Visualization</title>
@@ -6,5 +11,9 @@
 
     <body>
         <h1>Town of Cary: 2000-2021 Crime Visualization</h1>
+        <canvas id="barChart" style="width:100%;max-width:600px"></canvas>
+        <canvas id="doughnutChart" style="width:100%;max-width:600px"></canvas>
+        <script src="charts.js"></script>
+
     </body>
 </html>
