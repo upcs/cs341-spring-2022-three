@@ -6,13 +6,11 @@
     
     <head>
         <meta charset="utf-8">
-        <title>Cary Crime Visualization</title>
+        <title>Cary Police Incident Visualization</title>
         <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
-        
-
         <!-- <h1>Town of Cary: 2000-2021 Crime Visualization</h1> -->
         <div class="grid-container">
             <div class="item1">
@@ -21,18 +19,43 @@
             </div>
             <div class="item2">
                 <h1>Filters</h1>
+                <script scr="click-drop.js"></script>
+                <button onClick="clickDrop()" class="dropbtn" id="incident-type">Incident Type</button>
+                <div class="dropdown-content" id="incident-drop">
+                    <a href="#">Larceny</a>
+                    <a href="#">Battery</a>
+                    <a href="#">Murder</a>
+                </div>
+                <button onClick="clickDrop()" class="dropbtn" id="sub-incident">Sub-Incident Type</button>
+                <div class="dropdown-content" id="sub-incident-drop">
+                    <a href="#">To</a>
+                    <a href="#">Be</a>
+                    <a href="#">Determined</a>
+                </div>
+                <button onClick="clickDrop()" class="dropbtn" id="region">Region</button>
+                <div class="dropdown-content" id="region-drop">
+                    <a href="#">Soccer Complex</a>
+                    <a href="#">Chapel Hill</a>
+                    <a href="#">Sunnydale</a>
+                </div>
+                <button onClick="clickDrop()" class="dropbtn" id="date">Date Range</button>
+                <div class="dropdown-content" id="region-drop">
+                    <a href="#">Soccer Complex</a>
+                    <a href="#">Chapel Hill</a>
+                    <a href="#">Sunnydale</a>
+                </div>
             </div>
             <div class="item3">
-                <h1>Main Content</h1>
+                <h1>Table</h1>
             </div>
             <div class="item4">
-                <h1>Right-Side Content</h1>
+                <h1>Map</h1>
+            </div>
+            <div class="item5">
+                <h1>Charts</h1>
                 <canvas id="barChart" style="width:100%;max-width:600px"></canvas>
                 <canvas id="doughnutChart" style="width:100%;max-width:600px"></canvas>
                 <script src="charts.js"></script>
-            </div>
-            <div class="item5">
-                <h1>Footer Information</h1>
             </div>
         </div>
 
