@@ -1,7 +1,10 @@
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-function clickDrop() {
-    document.getElementById("myDropdown").classList.toggle("show");
+function clickDrop() { 
+  document.getElementById("incident-drop").classList.toggle("show");
+    //document.getElementById("sub-incident-drop").classList.toggle("show");
+    //document.getElementById("region-drop").classList.toggle("show");
+    //document.getElementById("date-drop").classList.toggle("show");
   }
   
   // Close the dropdown menu if the user clicks outside of it
