@@ -2,8 +2,16 @@
     Source of Inspiration:
     https://www.w3schools.com/css/css_grid.asp
 */
-
-.item1 { grid-area: header; }
+.font1{
+  color: cornflowerblue;
+}
+/*grid for each item */
+.item1 { grid-area: header; 
+  background-image: url("images/banner.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 .item2 { grid-area: menu; }
 .item3 { grid-area: table; }
 .item4 { grid-area: map; }
