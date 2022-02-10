@@ -2,8 +2,14 @@
     Source of Inspiration:
     https://www.w3schools.com/css/css_grid.asp
 */
+/*fonts style*/
 .font1{
   color: cornflowerblue;
+  font-family: 'Copperplate Gothic', fantasy;
+}
+
+h1{
+  font-family: Candara, sans-serif;  
 }
 /*grid for each item */
 .item1 { grid-area: header; 
