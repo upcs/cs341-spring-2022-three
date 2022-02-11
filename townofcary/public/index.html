@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <!-- link to use chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Cary Police Incident Visualization</title>
+        <link rel="stylesheet" href="stylesheets/tocstyle.css">
+    </head>
+
+    <body>
+        
+
+        <!-- <h1>Town of Cary: 2000-2021 Crime Visualization</h1> -->
+        <div class="grid-container">
+            <div class="item1">
+                <!-- Title Page Information or Subtitles-->
+                <h1>Cary Crime Visualization</h1>
+            </div>
+            <div class="item2">
+                <h1>Filters</h1>
+                <script src="javascripts/click-drop.js"></script>
+                <button onClick="clickDrop()" class="dropbtn" id="incident-type">Incident Type</button>
+                <div class="dropdown-content" id="incident-drop">
+                    <a href="#">Larceny</a>
+                    <a href="#">Battery</a>
+                    <a href="#">Murder</a>
+                </div>
+                <script src="javascripts/click-drop2.js"></script>
+                <button onClick="clickDrop2()" class="dropbtn" id="sub-incident">Sub-Incident Type</button>
+                <div class="dropdown-content" id="sub-incident-drop">
+                    <a href="#">To</a>
+                    <a href="#">Be</a>
+                    <a href="#">Determined</a>
+                </div>
+                <script src="javascripts/click-drop3.js"></script>
+                <button onClick="clickDrop3()" class="dropbtn" id="region">Region</button>
+                <div class="dropdown-content" id="region-drop">
+                    <a href="#">Soccer Complex</a>
+                    <a href="#">Chapel Hill</a>
+                    <a href="#">Sunnydale</a>
+                </div>
+                <script src="javascripts/click-drop4.js"></script>
+                <button onClick="clickDrop4()" class="dropbtn" id="date">Date Range</button>
+                <div class="dropdown-content" id="date-drop">
+                    <a href="#">Put Date Here</a>
+                    <a href="#">Put Date Here</a>
+                    <a href="#">Put Date Here</a>
+                </div>
+            </div>
+            <div class="item3">
+                <h1>Table</h1>
+                <table>
+                    <tr>
+                      <th>Crime Type</th>
+                      <th>Date</th>
+                      <th>Geocode</th>
+                    </tr>
+                    <tr>
+                      <td>FRAUD</td>
+                      <td>02/2022</td>
+                      <td>New St</td>
+                    </tr>
+                    <tr>
+                      <td>DUI</td>
+                      <td>01/2019</td>
+                      <td>5000 N Willamette Blvd</td>
+                    </tr>
+                    <tr>
+                      <td>HOMICIDE</td>
+                      <td>09/2004</td>
+                      <td>Dog St</td>
+                    </tr>
+                    
+                  </table>
+                  
+            </div>
+            <div class="item4">
+              
+                <h1>Map</h1>
+                <img src="images/townOfCary.png" alt="Map" style="width:500px;">
+
+                <h1>Right-Side Content</h1>
+                <canvas id="barChart" style="width:100%;max-width:600px"></canvas>
+                <canvas id="doughnutChart" style="width:100%;max-width:600px"></canvas>
+                <script src="javascripts/charts.js"></script>
+            </div>
+            <div class="item5">
+                <h1>Charts</h1>
+                <canvas id="barChart" style="width:100%;max-width:600px"></canvas>
+                <canvas id="doughnutChart" style="width:100%;max-width:600px"></canvas>
+                <script src="javascripts/charts.js"></script>
+            </div>
+        </div>
+
+    </body>
+</html>
