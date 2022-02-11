@@ -2,8 +2,22 @@
     Source of Inspiration:
     https://www.w3schools.com/css/css_grid.asp
 */
+/*fonts style*/
+.font1{
+  color: cornflowerblue;
+  font-family: 'Copperplate Gothic', fantasy;
+}
 
-.item1 { grid-area: header; }
+h1{
+  font-family: Candara, sans-serif;  
+}
+/*grid for each item */
+.item1 { grid-area: header; 
+  background-image: url("images/banner.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 .item2 { grid-area: menu; }
 .item3 { grid-area: table; }
 .item4 { grid-area: map; }
