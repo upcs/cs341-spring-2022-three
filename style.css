@@ -13,10 +13,10 @@
   display: grid;
   grid-template-areas:
     'header header header header header header header'
-    'menu table table map map charts charts'
-    'menu table table map map charts charts'
-    'menu table table map map charts charts'
-    'menu table table map map charts charts';
+    'menu charts charts charts map map map'
+    'menu charts charts charts map map map'
+    'menu table table table map map map'
+    'menu table table table map map map';
   grid-gap: 5px;
   background-color: rgb(64,144,121);
   padding: 10px;
