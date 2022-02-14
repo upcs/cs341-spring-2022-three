@@ -13,7 +13,7 @@ h1{
 }
 /*grid for each item */
 .item1 { grid-area: header; 
-  background-image: url("images/banner.jpg");
+  background-image: url("../images/banner.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -28,7 +28,8 @@ h1{
   grid-template-areas:
     'header header header header header header header'
     'map map map map map map map'
-    'table table table table table table table';
+    'table table table table table table table'
+    'charts charts charts charts charts charts charts';
   grid-gap: 5px;
   background-color: rgb(64,144,121);
   padding: 10px;
