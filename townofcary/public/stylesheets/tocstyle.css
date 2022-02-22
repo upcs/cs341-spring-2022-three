@@ -147,7 +147,7 @@ tr:nth-child(even) {
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  background-color: #111;
+  background-color: #3D1036;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -169,7 +169,7 @@ tr:nth-child(even) {
 /*navbar*/
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #333;
+  background-color: rgb(16, 61, 23);
   overflow: hidden;
 }
 
@@ -191,6 +191,6 @@ tr:nth-child(even) {
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #04AA6D;
+  background-color: rgb(106, 182, 160);
   color: white;
 }
