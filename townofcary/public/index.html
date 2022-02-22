@@ -7,7 +7,10 @@
     <head>
         <meta charset="utf-8">
         <title>Cary Police Incident Visualization</title>
-        <link rel="stylesheet" href="stylesheets/style.css"></link>
+        <link rel="stylesheet" href="stylesheets/dropdown.css"></link>
+        <link rel="stylesheet" href="stylesheets/layout.css"></link>
+        <link rel="stylesheet" href="stylesheets/search-filter.css"></link>
+        <link rel="stylesheet" href="stylesheets/sidebar.css"></link>
     </head>
 
     <body>
@@ -17,37 +20,50 @@
                 <!-- Title Page Information or Subtitles-->
                 <h1 class="font1">Cary Police Incident Visualization</h1>
             </div>
-            <!--<div class="item2"> -->
                 <div id="mySidebar" class="sidebar">
-                <a href="javascript:javascripts/sidebar.js" class="closebtn" onClick="closeNav()">×</a>
-                    <!-- <h1>Filters</h1> -->
-                    <a href="#">
-                        <script src="javascripts/click-drop.js"></script>
-                        <button onClick="clickDrop()" class="dropbtn" id="incident-type">Incident Type</button>
-                        <div class="dropdown-content" id="incident-drop">
-                            <a href="#">Larceny</a>
-                            <a href="#">Battery</a>
-                            <a href="#">Murder</a>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <script src="javascripts/click-drop2.js"></script>
-                        <button onClick="clickDrop2()" class="dropbtn" id="sub-incident">Sub-Incident Type</button>
-                        <div class="dropdown-content" id="sub-incident-drop">
-                            <a href="#">To</a>
-                            <a href="#">Be</a>
-                            <a href="#">Determined</a>
-                        </div>
-                    </a>   
-                    <a href="#">
-                        <script src="javascripts/click-drop3.js"></script>
-                        <button onClick="clickDrop3()" class="dropbtn" id="region">Region</button>
-                        <div class="dropdown-content" id="region-drop">
-                            <a href="#">Soccer Complex</a>
-                            <a href="#">Chapel Hill</a>
-                            <a href="#">Sunnydale</a>
-                        </div>
-                    </a>
+                <a href="javascripts/sidebar.js" class="closebtn" onClick="closeNav()"></a>
+                    <script src="javascripts/click-drop.js"></script>
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for crime types..." title="Type in a name">
+                        <ul id="myUL">
+                          <li><a href="#">Adele</a></li>
+                          <li><a href="#">Agnes</a></li>
+                        
+                          <li><a href="#">Billy</a></li>
+                          <li><a href="#">Bob</a></li>
+                        
+                          <li><a href="#">Calvin</a></li>
+                          <li><a href="#">Christina</a></li>
+                          <li><a href="#">Cindy</a></li>
+                        </ul>
+
+                    <script src="javascripts/click-drop2.js"></script>
+                        <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search for names.." title="Type in a name">
+                        <ul id="myUL2">
+                          <li><a href="#">Adele</a></li>
+                          <li><a href="#">Agnes</a></li>
+                        
+                          <li><a href="#">Billy</a></li>
+                          <li><a href="#">Bob</a></li>
+                        
+                          <li><a href="#">Calvin</a></li>
+                          <li><a href="#">Christina</a></li>
+                          <li><a href="#">Cindy</a></li>
+                        </ul>
+
+                    <script src="javascripts/click-drop3.js"></script>
+                        <input type="text" id="myInput3" onkeyup="myFunction3()" placeholder="Search for names.." title="Type in a name">
+                        <ul id="myUL3">
+                          <li><a href="#">Adele</a></li>
+                          <li><a href="#">Agnes</a></li>
+                        
+                          <li><a href="#">Billy</a></li>
+                          <li><a href="#">Bob</a></li>
+                        
+                          <li><a href="#">Calvin</a></li>
+                          <li><a href="#">Christina</a></li>
+                          <li><a href="#">Cindy</a></li>
+                        </ul>
+
                     <a href="#">
                         <script src="javascripts/click-drop4.js"></script>
                         <button onClick="clickDrop4()" class="dropbtn" id="date">Date Range</button>
@@ -57,7 +73,6 @@
                             <a href="#">Put Date Here</a>
                         </div>
                     </a>
-               <!-- </div> -->
             </div>   
             <div class="item3">
                 <h1>Table</h1>
@@ -82,9 +97,7 @@
                       <td>09/2004</td>
                       <td>Dog St</td>
                     </tr>
-                    
-                  </table>
-                  
+                  </table>  
             </div>
             <div class="item4">
                 <script src="javascripts/sidebar.js"></script>
