@@ -3,6 +3,7 @@
     <!-- link to use chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <head>
         <meta charset="utf-8">
@@ -107,5 +108,36 @@
                 <script src="javascripts/charts.js"></script>
             </div>
         </div>
+        
+        <!-- The following item is entirely for testing purposes of filters.js -->
+        <!-- This is serving as a placeholder for testing the filters functionality -->
+        <!-- since the filter buttons that are implemented are not finished yet -->
+        <!--  -Ben -->
+        <script>
+            $(document).ready(function(){
+                $('#testing').click(function(){
+                    <!-- This line of code affects all jquery requests -->
+                    <!-- Alternatives and risks should be considered -->
+                    <!--  -Ben -->
+                    $.ajaxSetup({traditional: true});
+                    
+                    <!-- For now no date range selected is signified by setting the start date to 1000-01-01 -->
+                    <!-- If no crime types are selected simply send an empty array -->
+                    <!-- Location filtering cannot be implemented until we determine our map.api -->
+                    <!--  -Ben -->
+                    $.post('filters',
+                    {
+                        startdate: "2008-10-27",
+                        enddate: "2010-11-30", 
+                        crimes: ["Fraud", "Alcohol Offenses"],
+                        location: "location"
+                    },
+                    function(data){
+                    }, 'json');
+                });
+            });
+        </script>
+        <input type="button" value="THIS IS FOR TESTING DELETE LATER" id="testing" >
+    
     </body>
 </html>
