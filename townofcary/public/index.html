@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <!-- link to use chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Cary Police Incident Visualization</title>
+        <link rel="stylesheet" href="stylesheets/dropdown.css"></link>
+        <link rel="stylesheet" href="stylesheets/layout.css"></link>
+        <link rel="stylesheet" href="stylesheets/search-filter.css"></link>
+        <link rel="stylesheet" href="stylesheets/sidebar.css"></link>
+        <link rel="stylesheet" href="stylesheets/navbar.css"></link>
+    </head>
+
+    <body>
+        <!-- <h1>Town of Cary: 2000-2021 Crime Visualization</h1> -->
+        <div class="grid-container">
+            <div class="item1">
+                <!-- Title Page Information or Subtitles-->
+                <h1 class="font1">Cary Police Incident Visualization</h1>
+            </div>
+                <div id="mySidebar" class="sidebar">
+                <a href="javascripts/sidebar.js" class="closebtn" onClick="closeNav()"></a>
+                    <script src="javascripts/click-drop.js"></script>
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for crime types..." title="Type in a name">
+                        <ul id="myUL">
+                          <li><a href="#"></a>Wire Fraud</li>
+                          <li><a href="#"></a>Larceny</li>
+                        
+                          <li><a href="#"></a>Murder</li>
+                          <li><a href="#">Bounced Check</a></li>
+                        </ul>
+
+                    <script src="javascripts/click-drop2.js"></script>
+                        <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search for names.." title="Type in a name">
+                        <ul id="myUL2">
+                          <li><a href="#">Tax Evasion</a></li>
+                          <li><a href="#">Tax Fraud</a></li>
+                        
+                          <li><a href="#">Taxes</a></li>
+                        </ul>
+
+                    <script src="javascripts/click-drop3.js"></script>
+                        <input type="text" id="myInput3" onkeyup="myFunction3()" placeholder="Search for names.." title="Type in a name">
+                        <ul id="myUL3">
+                          <li><a href="#">Soccer Complex</a></li>
+                          <li><a href="#">Main St</a></li>
+                        
+                          <li><a href="#">Elementary School</a></li>
+                          <li><a href="#">First St</a></li>
+                
+                        </ul>
+
+                    <a href="#">
+                        <script src="javascripts/click-drop4.js"></script>
+                        <button onClick="clickDrop4()" class="dropbtn" id="date">Date Range</button>
+                        <div class="dropdown-content" id="date-drop">
+                            <a href="#">Put Date Here</a>
+                            <a href="#">Put Date Here</a>
+                            <a href="#">Put Date Here</a>
+                        </div>
+                    </a>
+            </div>   
+            <div class="item3">
+                <h1>Table</h1>
+                <table>
+                    <tr>
+                      <th>Crime Type</th>
+                      <th>Date</th>
+                      <th>Geocode</th>
+                    </tr>
+                    <tr>
+                      <td>FRAUD</td>
+                      <td>02/2022</td>
+                      <td>New St</td>
+                    </tr>
+                    <tr>
+                      <td>DUI</td>
+                      <td>01/2019</td>
+                      <td>5000 N Willamette Blvd</td>
+                    </tr>
+                    <tr>
+                      <td>HOMICIDE</td>
+                      <td>09/2004</td>
+                      <td>Dog St</td>
+                    </tr>
+                  </table>  
+            </div>
+            <div class="item4">
+                <!-- Navbar-->
+                <div class="topnav">
+                    <a class="active" href="index.html">Map</a>
+                    <a href="chart.html">Chart</a>
+                    <a href="table.html">Table</a>
+                </div>
+                <script src="javascripts/sidebar.js"></script>
+                <button onClick="openNav()" class="openbtn" >☰ Filters</button>
+                <h1>Map</h1>
+                <img src="images/townOfCary.png" alt="Map" style="width:500px;">
+            </div>
+            <div class="item5">
+                <h1>Charts</h1>
+                <canvas id="barChart" style="width:100%;max-width:600px"></canvas>
+                <canvas id="doughnutChart" style="width:100%;max-width:600px"></canvas>
+                <script src="javascripts/charts.js"></script>
+            </div>
+        </div>
+    </body>
+</html>
