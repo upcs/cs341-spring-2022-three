@@ -3,6 +3,7 @@
     <!-- link to use chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <head>
         <meta charset="utf-8">
@@ -23,47 +24,32 @@
             </div>
                 <div id="mySidebar" class="sidenav">
                     <script src="javascripts/click-drop.js"></script>
-                    
-                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for crime types..." title="Type in a name">
-                    
-                    <ul id="myUL">
-                          <li><a href="#">Adele</a></li>
-                          <li><a href="#">Agnes</a></li>
-                        
-                          <li><a href="#">Billy</a></li>
-                          <li><a href="#">Bob</a></li>
-                        
-                          <li><a href="#">Calvin</a></li>
-                          <li><a href="#">Christina</a></li>
-                          <li><a href="#">Cindy</a></li>
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for crime types..." title="Type in a name">
+                        <ul id="myUL">
+                          <li><a href="#"></a>Wire Fraud</li>
+                          <li><a href="#"></a>Larceny</li>
+                          <li><a href="#"></a>Murder</li>
+                          <li><a href="#">Bounced Check</a></li>
                         </ul>
 
                     <script src="javascripts/click-drop2.js"></script>
                         <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search for names.." title="Type in a name">
                         <ul id="myUL2">
-                          <li><a href="#">Adele</a></li>
-                          <li><a href="#">Agnes</a></li>
+                          <li><a href="#">Tax Evasion</a></li>
+                          <li><a href="#">Tax Fraud</a></li>
                         
-                          <li><a href="#">Billy</a></li>
-                          <li><a href="#">Bob</a></li>
-                        
-                          <li><a href="#">Calvin</a></li>
-                          <li><a href="#">Christina</a></li>
-                          <li><a href="#">Cindy</a></li>
+                          <li><a href="#">Taxes</a></li>
                         </ul>
 
                     <script src="javascripts/click-drop3.js"></script>
                         <input type="text" id="myInput3" onkeyup="myFunction3()" placeholder="Search for names.." title="Type in a name">
                         <ul id="myUL3">
-                          <li><a href="#">Adele</a></li>
-                          <li><a href="#">Agnes</a></li>
+                          <li><a href="#">Soccer Complex</a></li>
+                          <li><a href="#">Main St</a></li>
                         
-                          <li><a href="#">Billy</a></li>
-                          <li><a href="#">Bob</a></li>
-                        
-                          <li><a href="#">Calvin</a></li>
-                          <li><a href="#">Christina</a></li>
-                          <li><a href="#">Cindy</a></li>
+                          <li><a href="#">Elementary School</a></li>
+                          <li><a href="#">First St</a></li>
+                
                         </ul>
 
                     <a href="#">
@@ -76,6 +62,31 @@
                         </div>
                     </a>
             </div>   
+            <div class="item3">
+                <h1>Table</h1>
+                <table id="table">
+                    <tr>
+                      <th>Crime Type</th>
+                      <th>Date</th>
+                      <th>Geocode</th>
+                    </tr>
+                    <tr>
+                      <td>FRAUD</td>
+                      <td>02/2022</td>
+                      <td>New St</td>
+                    </tr>
+                    <tr>
+                      <td>DUI</td>
+                      <td>01/2019</td>
+                      <td>5000 N Willamette Blvd</td>
+                    </tr>
+                    <tr>
+                      <td>HOMICIDE</td>
+                      <td>09/2004</td>
+                      <td>Dog St</td>
+                    </tr>
+                  </table>  
+            </div>
             <div class="item4">
                 <!-- Navbar-->
                 <div class="topnav">
@@ -90,5 +101,14 @@
                 <img src="images/townOfCary.png" alt="Map" style="width:500px;">
             </div>
         </div>
+        
+        <!-- TODO: Remove this -->
+        <!-- This is entirely for testing purposes -->
+        <!-- The following script and button should be removed as -->
+        <!-- soon as the filters are functional -->
+        <!-- -Ben -->
+        <script src="javascripts/test-filter.js"></script>
+        <input type="button" value="THIS IS FOR TESTING DELETE LATER" id="testing" >
+    
     </body>
 </html>
