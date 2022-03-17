@@ -24,45 +24,43 @@
             </div>
                 <div id="mySidebar" class="sidebar">
                 <a href="javascripts/sidebar.js" class="closebtn" onClick="closeNav()"></a>
-                    <script src="javascripts/click-drop.js"></script>
-                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for crime types..." title="Type in a name">
-                        <ul id="myUL">
-                          <li><a href="#"></a>Wire Fraud</li>
-                          <li><a href="#"></a>Larceny</li>
-                        
-                          <li><a href="#"></a>Murder</li>
-                          <li><a href="#">Bounced Check</a></li>
-                        </ul>
-
-                    <script src="javascripts/click-drop2.js"></script>
-                        <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search for names.." title="Type in a name">
-                        <ul id="myUL2">
-                          <li><a href="#">Tax Evasion</a></li>
-                          <li><a href="#">Tax Fraud</a></li>
-                        
-                          <li><a href="#">Taxes</a></li>
-                        </ul>
-
-                    <script src="javascripts/click-drop3.js"></script>
-                        <input type="text" id="myInput3" onkeyup="myFunction3()" placeholder="Search for names.." title="Type in a name">
-                        <ul id="myUL3">
-                          <li><a href="#">Soccer Complex</a></li>
-                          <li><a href="#">Main St</a></li>
-                        
-                          <li><a href="#">Elementary School</a></li>
-                          <li><a href="#">First St</a></li>
-                
-                        </ul>
-
-                    <a href="#">
-                        <script src="javascripts/click-drop4.js"></script>
-                        <button onClick="clickDrop4()" class="dropbtn" id="date">Date Range</button>
-                        <div class="dropdown-content" id="date-drop">
-                            <a href="#">Put Date Here</a>
-                            <a href="#">Put Date Here</a>
-                            <a href="#">Put Date Here</a>
-                        </div>
-                    </a>
+                    <form action = "https://example.com">
+                      <table>
+                        <tr>
+                          <script src="javascripts/click-drop.js"></script>
+                          <input type="text" id="myInput" name="crime-type" onkeyup="myFunction()" placeholder="Search for crime types..." title="Type in a name">
+                          <ul id="myUL">
+                            <li><a href="#">Wire Fraud</a></li>
+                            <li><a href="#">Larceny</a></li>
+                            <li><a href="#">Murder</a></li>
+                            <li><a href="#">Bounced Check</a></li>
+                          </ul>
+                        </tr>
+                        <tr>
+                          <script src="javascripts/click-drop2.js"></script>
+                          <input type="text" id="myInput2" name="location" onkeyup="myFunction2()" placeholder="Search for streets.." title="Type in a name">
+                          <ul id="myUL2">
+                            <li><a href="#">Soccer Complex</a></li>
+                            <li><a href="#">Main St</a></li>
+                            <li><a href="#">Elementary School</a></li>
+                            <li><a href="#">First St</a></li>
+                          </ul>
+                        </tr>
+                        <tr>
+                          <label>Filter Start:
+                            <input type="date" name="begin-date" min="2000-01-01" max="2023-01-01">
+                          </label>
+                        </tr>
+                        <tr>
+                          <label>Filter End:
+                            <input type="date" name="end-date" min="2000-01-01" max="2023-01-01">
+                          </label>
+                        </tr>
+                        <tr>
+                          <input type="submit" value="submit">
+                        </tr>
+                      </table>
+                    </form>
             </div>   
             <div class="item3">
                 <h1>Table</h1>
