@@ -13,10 +13,10 @@
   }
   /*grid for each item */
   .item1 { grid-area: header; 
-    background-image: url("images/banner.jpg");
+    /* background-image: url("../images/banner.jpg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: cover; */
   }
   .item2 { grid-area: menu;}
   .item3 { grid-area: table; }
@@ -38,6 +38,6 @@
   .grid-container > div {
     background-color: rgba(254, 255, 252, 0.8);
     text-align: center;
-    padding: 20px 0;
+    padding: 0 0;
     font-size: 30px;
   }
