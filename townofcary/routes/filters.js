@@ -44,16 +44,53 @@ router.post('/', function(req, res, next) {
     console.log(sqlCommand);
     
     //code is commented out for now because the database is not functional
+    //code is untested on account of this fact
     // -Ben
     /*db = dbms.dbquery(sqlCommand);
     
     db.then(
         function(value) {
-            
-            //not sure as of yet how data should be sent back
+
+            //this bit of code isn't written particularly efficiently
+            //TODO: come back to this and optomize it (unless its determined to be inconsequential)
+            // -Ben
+
+            var crimeTypes = [];
+            var counts = [];
+            var foundCrime = false;
+
+            for(const row of value){
+                foundCrime = false;
+                for(var i = 0; i < crimeTypes.length; i++){
+                    if(row.CRIME == crimeTypes[i]){
+                        foundCrime = true;
+                        break;
+                    }
+                    if(row.CRIME == crimeTypes[i]){
+                        counts[i]++;
+                        foundCrime = true;
+                        break;
+                    }
+                }
+                if(!foundCrime){
+                    crimeTypes.push(row.CRIME);
+                    counts.push(1);
+                }
+            }
+
+            var arr = [];
+            for(var i = 0; i < crimeTypes.length; i++){
+                var obj = {
+                    crime: crimeTypes[i],
+                    quantity: counts[i]
+                }
+                arr.push(obj);
+            }
+
+            var response = {data: arr};
             
             //send response to client
-            res.send(value);
+            res.send(response);
         },
         function(error) {
             console.log("err occured retriving data from database in filters.js");
