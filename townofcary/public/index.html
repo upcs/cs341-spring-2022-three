@@ -7,11 +7,14 @@
     
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
     
     <head>
         <meta charset="utf-8">
         <title>Cary Police Incident Visualization</title>
         <link rel="stylesheet" href="stylesheets/tocstyle.css">
+        <link rel="stylesheet" href="stylesheets/mapstyle.css">
     </head>
 
     <body>
@@ -32,15 +35,22 @@
             </div>
             <div class="item4">
               
-                <h1>Map</h1>
-                <img src="images/townOfCary.png" alt="Map" style="width:250px;">
+                <div id='map' style='width: 500px; height: 500px;'>
+                    <div class='map-overlay' id='features'>
+                        <h3 id='location'>Cary, North Carolina</h3>
+                    </div>
+                </div>
+                
+                <!-- <div class='map-overlay' id='legend'></div> -->
+
+                
+                <script src="javascripts/map.js"></script>
 
             </div>
             <div class="item5">
                 <h1>Charts</h1>
                 
-                <div id='map' style='width: 400px; height: 400px;'></div>
-                <script src="javascripts/map.js"></script>
+                
             </div>
         </div>
 
