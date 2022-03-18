@@ -3,63 +3,66 @@
     <!-- link to use chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <head>
         <meta charset="utf-8">
         <title>Cary Police Incident Visualization</title>
-        <link rel="stylesheet" href="stylesheets/tocstyle.css">
+        <link rel="stylesheet" href="stylesheets/dropdown.css"></link>
+        <link rel="stylesheet" href="stylesheets/layout.css"></link>
+        <link rel="stylesheet" href="stylesheets/search-filter.css"></link>
+        <link rel="stylesheet" href="stylesheets/sidebar.css"></link>
+        <link rel="stylesheet" href="stylesheets/navbar.css"></link>
     </head>
-
     <body>
-        
-
         <!-- <h1>Town of Cary: 2000-2021 Crime Visualization</h1> -->
         <div class="grid-container">
             <div class="item1">
                 <!-- Title Page Information or Subtitles-->
-                <h1 class="font1">Cary Crime Visualization</h1>
+                <h1 class="font1">Cary Police Incident Table</h1>
             </div>
              <!-- Side bar-->
-            <div id="mySidebar" class="sidebar">
-            <a href="javascript:javascripts/sidebar.js" class="closebtn" onClick="closeNav()">×</a>
-                <!-- <h1>Filters</h1> -->
-                <a href="#">
-                    <script src="javascripts/click-drop.js"></script>
-                    <button onClick="clickDrop()" class="dropbtn" id="incident-type">Incident Type</button>
-                    <div class="dropdown-content" id="incident-drop">
-                        <a href="#">Larceny</a>
-                        <a href="#">Battery</a>
-                        <a href="#">Murder</a>
-                    </div>
-                </a>
-                <a href="#">
-                    <script src="javascripts/click-drop2.js"></script>
-                    <button onClick="clickDrop2()" class="dropbtn" id="sub-incident">Sub-Incident Type</button>
-                    <div class="dropdown-content" id="sub-incident-drop">
-                        <a href="#">To</a>
-                        <a href="#">Be</a>
-                        <a href="#">Determined</a>
-                    </div>
-                </a>   
-                <a href="#">
-                    <script src="javascripts/click-drop3.js"></script>
-                    <button onClick="clickDrop3()" class="dropbtn" id="region">Region</button>
-                    <div class="dropdown-content" id="region-drop">
-                        <a href="#">Soccer Complex</a>
-                        <a href="#">Chapel Hill</a>
-                        <a href="#">Sunnydale</a>
-                    </div>
-                </a>
-                <a href="#">
-                    <script src="javascripts/click-drop4.js"></script>
-                    <button onClick="clickDrop4()" class="dropbtn" id="date">Date Range</button>
-                    <div class="dropdown-content" id="date-drop">
-                        <a href="#">Put Date Here</a>
-                        <a href="#">Put Date Here</a>
-                        <a href="#">Put Date Here</a>
-                    </div>
-                </a>
-            </div>   
+             <div id="mySidebar" class="sidenav">
+
+                  <form action = "https://example.com">
+                    <table>
+                      <tr>
+                        <script src="javascripts/click-drop.js"></script>
+                        <input type="text" id="myInput" name="crime-type" onkeyup="myFunction()" placeholder="Search for crime types..." title="Type in a name">
+                        <ul id="myUL">
+                          <li><a href="#">Wire Fraud</a></li>
+                          <li><a href="#">Larceny</a></li>
+                          <li><a href="#">Murder</a></li>
+                          <li><a href="#">Bounced Check</a></li>
+                        </ul>
+                      </tr>
+                      <tr>
+                        <script src="javascripts/click-drop2.js"></script>
+                        <input type="text" id="myInput2" name="location" onkeyup="myFunction2()" placeholder="Search for streets.." title="Type in a name">
+                        <ul id="myUL2">
+                          <li><a href="#">Soccer Complex</a></li>
+                          <li><a href="#">Main St</a></li>
+                          <li><a href="#">Elementary School</a></li>
+                          <li><a href="#">First St</a></li>
+                        </ul>
+                      </tr>
+                      <tr>
+                        <label>Filter Start:
+                          <input type="date" name="begin-date" min="2000-01-01" max="2023-01-01">
+                        </label>
+                      </tr>
+                      <tr>
+                        <label>Filter End:
+                          <input type="date" name="end-date" min="2000-01-01" max="2023-01-01">
+                        </label>
+                      </tr>
+                      <tr>
+                        <input type="submit" value="submit">
+                      </tr>
+                    </table>
+                  </form>
+
+          </div>   
             <div class="item3">
                 <!-- Navbar-->
                 <div class="topnav">
@@ -68,7 +71,10 @@
                     <a class="active" href="table.html">Table</a>
                 </div>
                 <script src="javascripts/sidebar.js"></script>
-                <button onClick="openNav()" class="openbtn" >☰ Filters</button>
+                <span id="one" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; SideBar</span>
+
+                <span id="two"style="font-size:30px;cursor:pointer" onclick="closeNav()">&#9776; SideBar</span>
+
                 <h1>Table</h1>
                 <table>
                     <tr>
@@ -91,7 +97,6 @@
                       <td>09/2004</td>
                       <td>Dog St</td>
                     </tr>
-                    
                   </table>
                   
             </div>
