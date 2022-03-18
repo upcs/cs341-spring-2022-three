@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "jest --env=jsdom"
+    "test": "jest --env=jsdom --coverage"
   },
   "dependencies": {
     "async": "^3.2.3",
