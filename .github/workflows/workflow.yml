@@ -24,7 +24,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Upload coverage to Codecov
       - uses: codecov/codecov-action@v2
         with:
           token: 78e62801-ec48-4946-aaa0-2e198f8e9009
