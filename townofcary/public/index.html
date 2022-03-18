@@ -24,7 +24,7 @@
                 <h1 class="font1">Cary Police Incident Map</h1>
             </div>
                 <div id="mySidebar" class="sidenav">
-                    <form action = "https://example.com">
+                    <form action="" id="filters">
                       <table>
                         <tr>
                           <script src="javascripts/click-drop.js"></script>
@@ -48,16 +48,17 @@
                         </tr>
                         <tr>
                           <label>Filter Start:
-                            <input type="date" name="begin-date" value="2000-01-01" min="2000-01-01" max="2023-01-01">
+                            <input type="date" id="startdate" value="2000-01-01" min="2000-01-01" max="2023-01-01">
                           </label>
                         </tr>
                         <tr>
                           <label>Filter End:
-                            <input type="date" name="end-date" value="2023-01-01" min="2000-01-01" max="2023-01-01">
+                            <input type="date" id="enddate" value="2023-01-01" min="2000-01-01" max="2023-01-01">
                           </label>
                         </tr>
                         <tr>
                           <input type="submit" value="submit">
+                          <script src="javascripts/submit-filter.js"></script>
                         </tr>
                       </table>
                     </form>
@@ -78,7 +79,7 @@
             <div class="item3">
               <!-- Navbar-->
               <h1>Table</h1>
-              <table>
+              <table id="table">
                   <tr>
                     <th>Crime Type</th>
                     <th>Date</th>
@@ -108,13 +109,5 @@
             <script src="javascripts/charts.js"></script>
         </div>
         </div>
-        <!-- TODO: Remove this -->
-        <!-- This is entirely for testing purposes -->
-        <!-- The following script and button should be removed as -->
-        <!-- soon as the filters are functional -->
-        <!-- -Ben -->
-        <script src="javascripts/test-filter.js"></script>
-        <input type="button" value="THIS IS FOR TESTING DELETE LATER" id="testing" >
-    
     </body>
 </html>
