@@ -21,7 +21,7 @@ router.post('/', function(req, res, next) {
     var where = false;
     
     //adds any crime filters that are needed for the sql command
-    if(typeof req.body.crimes !== 'undefined'){
+    if(req.body.crimes !== ''){
         typeSql = "crime = '" + req.body.crimes[0] + "'"
         for(var i = 1; i < req.body.crimes.length; i++){
             typeSql += " OR crime = '" + req.body.crimes[i] + "'"
@@ -30,7 +30,7 @@ router.post('/', function(req, res, next) {
         where = true;
     }
     
-    if(req.body.startdate != "1000-01-01"){
+    if(req.body.startdate != '' && req.body.startdate != ''){
         
         if(where){
             sqlCommand += " AND ";
@@ -43,6 +43,8 @@ router.post('/', function(req, res, next) {
     
     console.log(sqlCommand);
     
+    res.send("banana");
+
     //code is commented out for now because the database is not functional
     //code is untested on account of this fact
     // -Ben
