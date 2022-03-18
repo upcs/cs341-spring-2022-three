@@ -3,8 +3,8 @@
     https://www.w3schools.com/css/css_grid.asp
 */
 /*fonts style*/
-.font1{
-    color: cornflowerblue;
+  .font1{
+    color: rgb(15, 82, 186);
     font-family: Candara, sans-serif;
   }
   
@@ -13,23 +13,22 @@
   }
   /*grid for each item */
   .item1 { grid-area: header; 
-    /* background-image: url("../images/banner.jpg");
+    background-image: url("../images/banner.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover; */
+    background-size: cover; 
   }
   .item2 { grid-area: menu;}
   .item3 { grid-area: table; }
-  .item4 { grid-area: map; }
+  .item4 { grid-area: map;}
   .item5 { grid-area: charts; }
   
   .grid-container {
     display: grid;
     grid-template-areas:
-      'header header header header header header header'
-      'map map map map map map map'
-      'table table table table table table table'
-      'charts charts charts charts charts charts charts';
+      'header header header header header header'
+      'map map map map map map'
+      'table table table charts charts charts';
     grid-gap: 5px;
     background-color: rgb(64,144,121);
     padding: 10px;
@@ -41,18 +40,20 @@
     padding: 0 0;
     font-size: 30px;
   }
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
+
+  /*Table*/
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

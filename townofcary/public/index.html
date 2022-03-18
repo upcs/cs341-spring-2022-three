@@ -3,7 +3,7 @@
     <!-- link to use chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     
     <head>
         <meta charset="utf-8">
@@ -18,12 +18,12 @@
     <body>
         <!-- <h1>Town of Cary: 2000-2021 Crime Visualization</h1> -->
         <div class="grid-container" id="main">
-            <div class="item1">
+          <div class="item1">
                 <!-- Title Page Information or Subtitles-->
-                <h1 class="font1">Cary Police Incident Visualization</h1>
+
+                <h1 class="font1">Cary Police Incident Map</h1>
             </div>
                 <div id="mySidebar" class="sidenav">
-                <a href="javascripts/sidebar.js" class="closebtn" onClick="closeNav()"></a>
                     <form action = "https://example.com">
                       <table>
                         <tr>
@@ -65,9 +65,9 @@
             <div class="item4">
                 <!-- Navbar-->
                 <div class="topnav">
-                    <a class="active" href="index.html">Map</a>
-                    <a href="chart.html">Chart</a>
-                    <a href="table.html">Table</a>
+                    <a class="active" href="#">Map</a>
+                    <a href="#">Chart</a>
+                    <a href="#">Table</a>
                 </div>
                 <script src="javascripts/sidebar.js"></script>
                 <span id="one" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; SideBar</span>
@@ -75,8 +75,39 @@
                 <h1>Map</h1>
                 <img src="images/townOfCary.png" alt="Map" style="width:500px;">
             </div>
+            <div class="item3">
+              <!-- Navbar-->
+              <h1>Table</h1>
+              <table>
+                  <tr>
+                    <th>Crime Type</th>
+                    <th>Date</th>
+                    <th>Geocode</th>
+                  </tr>
+                  <tr>
+                    <td>FRAUD</td>
+                    <td>02/2022</td>
+                    <td>New St</td>
+                  </tr>
+                  <tr>
+                    <td>DUI</td>
+                    <td>01/2019</td>
+                    <td>5000 N Willamette Blvd</td>
+                  </tr>
+                  <tr>
+                    <td>HOMICIDE</td>
+                    <td>09/2004</td>
+                    <td>Dog St</td>
+                  </tr>
+                </table>
+          </div>
+          <div class="item5">
+            <h1>Charts</h1>
+            <canvas id="barChart" style="width:100%;max-width:600px"></canvas>
+            <canvas id="doughnutChart" style="width:100%;max-width:600px"></canvas>
+            <script src="javascripts/charts.js"></script>
         </div>
-        
+        </div>
         <!-- TODO: Remove this -->
         <!-- This is entirely for testing purposes -->
         <!-- The following script and button should be removed as -->
