@@ -19,7 +19,12 @@
     background-size: cover; 
   }
   .item2 { grid-area: menu;}
-  .item3 { grid-area: table; }
+  .item3 { grid-area: table; 
+    background-image: url("../images/flower.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover; 
+  }
   .item4 { grid-area: map;}
   .item5 { grid-area: charts; }
   
