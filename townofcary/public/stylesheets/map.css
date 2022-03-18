@@ -12,13 +12,23 @@ body {
     margin: 10px;
     font-size: 16px;
   }
-  
-  #map {
-    position: relative;
-    top: 0;
-    bottom: 0;
-    width: 100%;
+  div.mapborder{
+      margin: auto;
   }
+
+  .mapboxgl-canvas {
+      position: relative;
+  }
+
+  #map { 
+      position: sticky; 
+      top: 0; 
+      bottom: 0; 
+      width: 50%;
+      height: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   
   /**
   * Set rules for how the map overlays

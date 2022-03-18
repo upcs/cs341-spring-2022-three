@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="stylesheets/search-filter.css"></link>
         <link rel="stylesheet" href="stylesheets/sidebar.css"></link>
         <link rel="stylesheet" href="stylesheets/navbar.css"></link>
+        <link rel="stylesheet" href="stylesheets/map.css"></link>
     </head>
 
     <body>
@@ -78,10 +79,13 @@
                 <span id="one" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Open</span>
                 <span  id="two"style="font-size:30px;cursor:pointer" onclick="closeNav() ">&#9776; Close</span>
                 <script src="javascripts/sidebar.js"></script>
+                <div class="mapborder">
+                    <div class="mapsection" id="map"></div>
+                    <script src="javascripts/map.js"></script>
+                </div>
+                
+                
 
-                <h1>Map</h1>
-                <div id="map" width="200px" height="200px"></div>
-                <script src="javascripts/map.js"></script>
             </div>
             <div class="item3">
               <!-- Navbar-->
@@ -108,7 +112,7 @@
                     <td>Dog St</td>
                   </tr>
                 </table>
-          </div>
+            </div>
           <div class="item5">
             <h1>Charts</h1>
             <canvas id="barChart" style="width:100%;max-width:600px"></canvas>
