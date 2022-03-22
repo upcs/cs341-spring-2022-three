@@ -4,18 +4,66 @@
 // only the data needed to display the information on the website should be sent back
 // created by Ben C
 
+//--------------------------------------------------------------------------------
+//              READ THIS FIRST
+//--------------------------------------------------------------------------------
+//TODO: the generated sql command has a bug where it does not use the proper order of operations
+//if you are filter by data and multiple crimes it will say "crime1 or crime2 and between date1 and date 2"
+//and so only crime2 will be filtered by date
+// -Ben
+
 var express = require('express');
 var dbms = require('./dbms_promise.js');
 var router = express.Router();
 
+//generates a json object containing the number of crimes
+//sorted by crime type
+function countCrimes(data){
+    var crimeTypes = [];
+    var counts = [];
+    var foundCrime = false;
+
+    //this bit of code isn't written particularly efficiently
+    //TODO: come back to this and optomize it (unless its determined to be inconsequential)
+    // -Ben
+    for(const row of data){
+        foundCrime = false;
+        for(var i = 0; i < crimeTypes.length; i++){
+            if(row.crime == crimeTypes[i]){
+                counts[i]++;
+                foundCrime = true;
+                break;
+            }
+        }
+        if(!foundCrime){
+            crimeTypes.push(row.crime);
+            counts.push(1);
+        }
+    }
+    
+    console.log("crime types:");
+    console.log(crimeTypes);
+    console.log("counts: ");
+    console.log(counts);
+
+    var arr = [];
+    for(var i = 0; i < crimeTypes.length; i++){
+        var obj = {
+            crime: crimeTypes[i],
+            quantity: counts[i]
+        }
+        arr.push(obj);
+    }
+
+    console.log(arr);
+    return arr;
+}
+
 // Listens for post requests
 router.post('/', function(req, res, next) {
     
-    // This line should probably left here for testing purposes until the website is more functional
-    //  -Ben
-    console.log(req.body);
-    
-    var sqlCommand = "SELECT * FROM ORDERS";
+    //generates the sql command to send to the database
+    var sqlCommand = "SELECT * FROM crimedata";
     
     //this variable is just ensuring that the WHERE part of the sql command is added only once
     var where = false;
@@ -30,74 +78,34 @@ router.post('/', function(req, res, next) {
         where = true;
     }
     
-    if(req.body.startdate != '' && req.body.startdate != ''){
-        
+    //adds any date range filters that are needed for the sql command
+    if(req.body.startdate != '' && req.body.enddate != ''){
         if(where){
             sqlCommand += " AND ";
         }
         else{
             sqlCommand += " WHERE ";
         }
-        sqlCommand += "date BETWEEN " + req.body.startdate + " AND " + req.body.enddate + ";";
+        sqlCommand += "date BETWEEN '" + req.body.startdate + "' AND '" + req.body.enddate + "';";
     }
     
-    console.log(sqlCommand);
-    
-    res.send("banana");
+    //the sql command generated should be safe against sql injection exploits
+    //regardless this code should be returned to determine its safety
+    console.log("sending sql command to database: \"" + sqlCommand + "\"");
 
-    //code is commented out for now because the database is not functional
-    //code is untested on account of this fact
-    // -Ben
-    /*db = dbms.dbquery(sqlCommand);
-    
+    //sends the sql command to the database
+    db = dbms.dbquery(sqlCommand);
     db.then(
         function(value) {
-
-            //this bit of code isn't written particularly efficiently
-            //TODO: come back to this and optomize it (unless its determined to be inconsequential)
-            // -Ben
-
-            var crimeTypes = [];
-            var counts = [];
-            var foundCrime = false;
-
-            for(const row of value){
-                foundCrime = false;
-                for(var i = 0; i < crimeTypes.length; i++){
-                    if(row.CRIME == crimeTypes[i]){
-                        foundCrime = true;
-                        break;
-                    }
-                    if(row.CRIME == crimeTypes[i]){
-                        counts[i]++;
-                        foundCrime = true;
-                        break;
-                    }
-                }
-                if(!foundCrime){
-                    crimeTypes.push(row.CRIME);
-                    counts.push(1);
-                }
-            }
-
-            var arr = [];
-            for(var i = 0; i < crimeTypes.length; i++){
-                var obj = {
-                    crime: crimeTypes[i],
-                    quantity: counts[i]
-                }
-                arr.push(obj);
-            }
-
-            var response = {data: arr};
-            
             //send response to client
-            res.send(response);
+            res.send({data: countCrimes(value)});
         },
+        //in case of an error
         function(error) {
             console.log("err occured retriving data from database in filters.js");
+            res.send("error");
         }
-    );*/
+    );
 });
 
 module.exports = router;
