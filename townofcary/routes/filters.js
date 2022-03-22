@@ -4,14 +4,6 @@
 // only the data needed to display the information on the website should be sent back
 // created by Ben C
 
-//--------------------------------------------------------------------------------
-//              READ THIS FIRST
-//--------------------------------------------------------------------------------
-//TODO: the generated sql command has a bug where it does not use the proper order of operations
-//if you are filter by data and multiple crimes it will say "crime1 or crime2 and between date1 and date 2"
-//and so only crime2 will be filtered by date
-// -Ben
-
 var express = require('express');
 var dbms = require('./dbms_promise.js');
 var router = express.Router();
@@ -23,9 +15,6 @@ function countCrimes(data){
     var counts = [];
     var foundCrime = false;
 
-    //this bit of code isn't written particularly efficiently
-    //TODO: come back to this and optomize it (unless its determined to be inconsequential)
-    // -Ben
     for(const row of data){
         foundCrime = false;
         for(var i = 0; i < crimeTypes.length; i++){
@@ -59,35 +48,43 @@ function countCrimes(data){
     return arr;
 }
 
-// Listens for post requests
-router.post('/', function(req, res, next) {
+//generates an sql command to send to the database
+function generateSql(obj){
     
-    //generates the sql command to send to the database
     var sqlCommand = "SELECT * FROM crimedata";
     
     //this variable is just ensuring that the WHERE part of the sql command is added only once
     var where = false;
     
     //adds any crime filters that are needed for the sql command
-    if(req.body.crimes !== ''){
-        typeSql = "crime = '" + req.body.crimes[0] + "'"
-        for(var i = 1; i < req.body.crimes.length; i++){
-            typeSql += " OR crime = '" + req.body.crimes[i] + "'"
+    if(obj.crimes !== ''){
+        typeSql = "(crime = '" + obj.crimes[0] + "'";
+        for(var i = 1; i < obj.crimes.length; i++){
+            typeSql += " OR crime = '" + obj.crimes[i] + "'";
         }
+        typeSql += ")";
         sqlCommand += " WHERE " + typeSql;
         where = true;
     }
     
     //adds any date range filters that are needed for the sql command
-    if(req.body.startdate != '' && req.body.enddate != ''){
+    if(obj.startdate != '' && obj.enddate != ''){
         if(where){
             sqlCommand += " AND ";
         }
         else{
             sqlCommand += " WHERE ";
         }
-        sqlCommand += "date BETWEEN '" + req.body.startdate + "' AND '" + req.body.enddate + "';";
+        sqlCommand += "date BETWEEN '" + obj.startdate + "' AND '" + obj.enddate + "';";
     }
+
+    return sqlCommand;
+}
+
+// Listens for post requests
+router.post('/', function(req, res, next) {
+    
+    sqlCommand = generateSql(req.body);
     
     //the sql command generated should be safe against sql injection exploits
     //regardless this code should be returned to determine its safety
@@ -104,7 +101,7 @@ router.post('/', function(req, res, next) {
         function(error) {
             console.log("err occured retriving data from database in filters.js");
             res.send("error");
-        }
+        } 
     );
 });
 
