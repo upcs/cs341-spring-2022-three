@@ -40,12 +40,6 @@ $(document).ready(function(){
             createTable(data);
         }, 'json');
 
-        //TODO: REMOVE THIS
-        //This part is only for testing purposes because the post cannot get a response right now
-        //-Ben
-        var data = {data: [{crime: "Fraud", quantity: 19}, {crime: "DUI", quantity: 6}, {crime: "Robbery", quantity: 24}]};
-        createTable(data);
-
         //This function must return false or the page reloads
         //note: if this function fails to reach this line the page reloads
         return false;
