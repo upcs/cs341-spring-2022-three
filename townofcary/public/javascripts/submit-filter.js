@@ -1,16 +1,12 @@
-// The following item is entirely for testing purposes of filters.js
-// This is serving as a placeholder for testing the filters functionality
-// since the filter buttons that are implemented are not finished yet
-// Do move this code when able however!
-// -Ben
+//This file process form submissions from the filters form
+//It takes in the inputs on the filters form and sends a post request
+//author: Ben
 
 //This function updates the table with the new data 
 //note: totally removes any existing data in the table
-//-Ben
 function createTable(data){
     $("#table").find("tr:not(:first)").remove();
     for(var i = 0; i < data.data.length; i++){
-        console.log(data.data[i]);
         var table = document.getElementById("table");
         var row = table.insertRow(-1);
         var cell0 = row.insertCell(0);
@@ -20,21 +16,23 @@ function createTable(data){
     }
 }
 
+//This function triggers whenever the submit button is pressed
 $(document).ready(function(){
-    $('#testing').click(function(){
+    $(document).on('submit', '#filters', function(){
+
         // This line of code affects all jquery requests
         // Alternatives and risks should be considered
         //  -Ben
         $.ajaxSetup({traditional: true});
         
-        // For now no date range selected is signified by setting the start date to 1000-01-01
-        // If no crime types are selected simply send an empty array
-        // Location filtering cannot be implemented until we determine our map.api
-        //  -Ben
+        //sends the post request to /routes/filters.js
         $.post('filters',
         {
-            startdate: "2008-10-27",
-            enddate: "2010-11-30", 
+            startdate: $("#startdate").val(),
+            enddate: $("#enddate").val(),
+            //TODO: implement crime and location filter
+            //crimes and location are hard coded for now
+            //-Ben
             crimes: ["Fraud", "Alcohol Offenses"],
             location: "location"
         },
@@ -42,10 +40,8 @@ $(document).ready(function(){
             createTable(data);
         }, 'json');
 
-        //TODO: REMOVE THIS
-        //This part is only for testing purposes because the post cannot get a response right now
-        //-Ben
-        var data = {data: [{crime: "Fraud", quantity: 19}, {crime: "DUI", quantity: 6}, {crime: "Robbery", quantity: 24}]};
-        createTable(data);
+        //This function must return false or the page reloads
+        //note: if this function fails to reach this line the page reloads
+        return false;
     });
 });

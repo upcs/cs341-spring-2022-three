@@ -13,10 +13,10 @@ exports.version = '0.0.1';
 var mysql = require('mysql'),
     async = require('async');
 
-var host = "0.0.0.0";    //from GCloud instance (change to match your db)
-var database = "###";  //database name
+var host = "35.230.9.141";    //from GCloud instance (change to match your db)
+var database = "townofcarydb";  //database name
 var user = "root";         //username (change to match your db)
-var password = "###";  //password (change to match your db, yes this is very poor practice)
+var password = "L00k@w@yPunk";  //password (change to match your db, yes this is very poor practice)
 
 /**
  * dbquery
@@ -68,7 +68,7 @@ exports.dbquery = function(query_str) {
             console.log(err);
             reject(new Error(err, null));
         } else {
-            //console.log("Database query completed.");
+            console.log("Database query completed.");
             resolve(results);
         }
 
