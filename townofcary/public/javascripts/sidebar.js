@@ -1,5 +1,5 @@
-var o =document.getElementById("one");
-var to =document.getElementById("two");
+var o = document.getElementById("one");
+var to = document.getElementById("two");
 to.style.display = 'none';
 
 function openNav() {
@@ -15,5 +15,4 @@ function closeNav() {
     document.getElementById("main").style.marginLeft= "0";
 	o.style.display = '';
     to.style.display = 'none';
-   
 }
