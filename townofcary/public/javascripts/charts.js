@@ -1,8 +1,3 @@
-
-
-//var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-//var yValues = [55, 49, 44, 24, 15];
-
 var tempX = [];
 var xValues = [];
 var uniqXValues = [];
@@ -29,6 +24,14 @@ $("table#table tr").each(function() {
     }
 });
 
+var tableArray = [];
+//pull data from table
+/*
+for(var i = 0; i < tableArray.length; i++){
+  xValues[i] = tableArray[i].name;
+}
+*/
+
 //only get the name of crime
 for(var i = 0; i < tempX.length; i++){
   xValues[i] = tempX[i][0];
@@ -42,8 +45,10 @@ for(var i = 0; i < uniqXValues.length; i++){
   yValues[i] = countOccurrences(xValues, xValues.length, uniqXValues[i]);
 }
 
+//set bar color
 var barColor = "rgba(64,144,121, 1.0)";
 
+//create actual bar chart
 new Chart("barChart", {
     type: "bar",
     data: {
@@ -80,15 +85,17 @@ new Chart("barChart", {
     }
   });
 
-var pieColors = [
-  "#b91d47",
-  "#00aba9",
-  "#2b5797",
-  "#e8c3b9",
-  "#1e7145"
-];
+var pieColors = [];
 
-/*
+//assign crimes a random color
+
+for(var i = 0; i < uniqXValues.length; i++){
+  var randomColor = Math.floor(Math.random()*16777215).toString(16);
+  pieColors[i] = "#" + randomColor;
+}
+
+
+
 new Chart("doughnutChart", {
   type: "doughnut",
   data: {
@@ -105,4 +112,4 @@ new Chart("doughnutChart", {
     }
   }
 });
-*/
+
