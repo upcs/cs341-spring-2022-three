@@ -29,11 +29,6 @@ function countCrimes(data){
             counts.push(1);
         }
     }
-    
-    console.log("crime types:");
-    console.log(crimeTypes);
-    console.log("counts: ");
-    console.log(counts);
 
     var arr = [];
     for(var i = 0; i < crimeTypes.length; i++){
