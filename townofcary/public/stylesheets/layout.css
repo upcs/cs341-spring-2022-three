@@ -27,13 +27,17 @@
   }
   .item4 { grid-area: map;}
   .item5 { grid-area: charts; }
+  .item6 { grid-area: tabs; }
+  
   
   .grid-container {
     display: grid;
     grid-template-areas:
       'header header header header header header'
-      'map map map map map map'
-      'table table table charts charts charts';
+      'tabs tabs tabs tabs tabs tabs'
+      'tabs tabs tabs tabs tabs tabs'
+      'tabs tabs tabs tabs tabs tabs'
+      'tabs tabs tabs tabs tabs tabs';
     grid-gap: 5px;
     background-color: rgb(64,144,121);
     padding: 10px;
