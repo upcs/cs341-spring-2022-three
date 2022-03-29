@@ -2,20 +2,6 @@
 //It takes in the inputs on the filters form and sends a post request
 //author: Ben
 
-//This function updates the table with the new data 
-//note: totally removes any existing data in the table
-function createTable(data){
-    $("#table").find("tr:not(:first)").remove();
-    for(var i = 0; i < data.data.length; i++){
-        var table = document.getElementById("table");
-        var row = table.insertRow(-1);
-        var cell0 = row.insertCell(0);
-        var cell1 = row.insertCell(1);
-        cell0.appendChild(document.createTextNode(data.data[i].crime));
-        cell1.appendChild(document.createTextNode(data.data[i].quantity));
-    }
-}
-
 //This function triggers whenever the submit button is pressed
 $(document).ready(function(){
     $(document).on('submit', '#filters', function(){
@@ -37,7 +23,10 @@ $(document).ready(function(){
             location: "location"
         },
         function(data){
-            createTable(data);
+            console.log(tableData);
+            tableData = data.data;
+            console.log(tableData);
+            populateTable();
         }, 'json');
 
         //This function must return false or the page reloads
