@@ -50,9 +50,9 @@ function generateSql(obj){
     
     //this variable is just ensuring that the WHERE part of the sql command is added only once
     var where = false;
-    
+
     //adds any crime filters that are needed for the sql command
-    if(obj.crimes !== ''){
+    if(typeof obj.crimes !== 'undefined'){
         typeSql = "(crime = '" + obj.crimes[0] + "'";
         for(var i = 1; i < obj.crimes.length; i++){
             typeSql += " OR crime = '" + obj.crimes[i] + "'";
