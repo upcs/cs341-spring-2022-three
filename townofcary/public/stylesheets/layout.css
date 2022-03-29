@@ -19,12 +19,7 @@
     background-size: cover; 
   }
   .item2 { grid-area: menu;}
-  .item3 { grid-area: table; 
-    background-image: url("../images/flower.png");
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: cover; 
-  }
+  .item3 { grid-area: table;}
   .item4 { grid-area: map;}
   .item5 { grid-area: charts; }
   .item6 { grid-area: tabs; }
@@ -35,9 +30,10 @@
     grid-template-areas:
       'header header header header header header'
       'tabs tabs tabs tabs tabs tabs'
-      'tabs tabs tabs tabs tabs tabs'
-      'tabs tabs tabs tabs tabs tabs'
-      'tabs tabs tabs tabs tabs tabs';
+      'map map map map map map'
+      'table table table table table table'
+      'charts charts charts charts charts charts'
+      ;
     grid-gap: 5px;
     background-color: rgb(64,144,121);
     padding: 10px;

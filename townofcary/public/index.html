@@ -129,38 +129,45 @@
                 <script src="javascripts/sidebar.js"></script>
               </div>
             </div>  
-            <div id="Map" class="tabcontent">
-              <h1>Map</h1>
-              <div class="mapborder">
-                  <div class="mapsection" id="map"></div>
-                  <script src="javascripts/map.js"></script>
+            <div class="item4">
+              <div id="Map" class="tabcontent">
+                <h1>Map</h1>
+                <div class="mapborder">
+                    <div class="mapsection" id="map"></div>
+                    <script src="javascripts/map.js"></script>
+                </div>
               </div>
             </div>
             <div class="item3">
-              <!-- Filtering Table -->
-              <h2>Product Table</h2>
-              <p>Key in your input to filter the table:</p>
+              <div id="Table" class="tabcontent">
+                <!-- Filtering Table -->
+                <h2>Product Table</h2>
+                <p>Key in your input to filter the table:</p>
 
-              <input type="text" id="myinput" placeholder="Search..." title="Type in something">
+                <input type="text" id="myinput" placeholder="Search..." title="Type in something">
 
-              <p>Click on the header of a column to sort the table:</p>
+                <p>Click on the header of a column to sort the table:</p>
 
-              <table>
-                <thead><tr>
-                  <th><span id="crimetype" class="w3-button table-column">Crime Type <i class="caret"></span></th>
-                  <th><span id="district" class="w3-button table-column">District <i class="caret"></span></th>
-                  <th><span id="date" class="w3-button table-column">Date <i class="caret"></span></th>
-                </tr></thead>
-                <tbody id="mytable"></tbody>
-              </table>
-              <script src="javascripts/table-filter.js"></script> <!-- Change based on location -->
+                <table>
+                  <thead><tr>
+                    <th><span id="crimetype" class="w3-button table-column">Crime Type <i class="caret"></span></th>
+                    <th><span id="district" class="w3-button table-column">District <i class="caret"></span></th>
+                    <th><span id="date" class="w3-button table-column">Date <i class="caret"></span></th>
+                  </tr></thead>
+                  <tbody id="mytable"></tbody>
+                </table>
+                <script src="javascripts/table-filter.js"></script> <!-- Change based on location -->
+              </div>
+              
             </div>
-            <!-- <div id="chart" class="tablecontent">
+            <div class="item5">
+              <div id="chart" class="tablecontent">
                 <h1>Charts</h1>
                 <canvas id="barChart" style="width:100%;max-width:600px"></canvas>
                 <canvas id="doughnutChart" style="width:100%;max-width:600px"></canvas>
                 <script src="javascripts/charts.js"></script>
-            </div> -->
+              </div> 
+            </div>
             <script src="javascripts/tabs.js"></script>
         </div>
     </body>
