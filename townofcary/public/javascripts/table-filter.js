@@ -1,6 +1,6 @@
 var table = document.getElementById('mytable');
 var input = document.getElementById('myinput');
-var tableData = [{name: 'Onion', quantity: 29, price: 1.2, expiry: '2021-09-12'}, {name: 'Apple', quantity: 55, price: 3.3, expiry: '2021-09-22'}, {name: 'Potato', quantity: 25, price: 2.5, expiry: '2021-09-18'}, {name: 'Carrot', quantity: 8, price: 0.8, expiry: '2021-09-25'}];
+var tableData = [{crimetype: 'Murder', district: '2', date: '2021-7-26'}, {crimetype: 'Profanity',district: '17', date: '2006-08-02'}];
 var caretUpClassName = 'fa fa-caret-up';
 var caretDownClassName = 'fa fa-caret-down';
 
@@ -61,19 +61,15 @@ function populateTable() {
   table.innerHTML = '';
   for (let data of tableData) {
     let row = table.insertRow(-1);
-    let name = row.insertCell(0);
-    name.innerHTML = data.name;
+    let crimetype = row.insertCell(0);
+    crimetype.innerHTML = data.crimetype;
 
-    let quantity = row.insertCell(1);
-    quantity.innerHTML = data.quantity;
+    let district = row.insertCell(1);
+    district.innerHTML = data.district;
 
-    let price = row.insertCell(2);
-    price.innerHTML = data.price;
-
-    let expiry = row.insertCell(3);
-    expiry.innerHTML = data.expiry;
+    let date = row.insertCell(2);
+    date.innerHTML = data.date;
   }
-
   filterTable();
 }
 
