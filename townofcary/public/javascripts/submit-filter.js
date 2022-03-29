@@ -29,6 +29,10 @@ $(document).ready(function(){
             populateTable();
         }, 'json');
 
+        removeData(barChart);
+        removeData(donutChart);
+        updateChart();
+ 
         //This function must return false or the page reloads
         //note: if this function fails to reach this line the page reloads
         return false;
