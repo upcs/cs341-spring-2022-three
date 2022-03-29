@@ -10,6 +10,11 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+
+    <!-- Item 3: Filtering Table-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheets/table-style.css"></link> <!-- Change based on location -->
     
     <head>
         <meta charset="utf-8">
@@ -131,30 +136,24 @@
                   <script src="javascripts/map.js"></script>
               </div>
             </div>
-            <div id="Table" class="tabcontent">
-              <h1>Table</h1>
-              <table id="table">
-                <tr>
-                  <th>Crime Type</th>
-                  <th>Date</th>
-                  <th>Geocode</th>
-                </tr>
-                <tr>
-                  <td>FRAUD</td>
-                  <td>02/2022</td>
-                  <td>New St</td>
-                </tr>
-                <tr>
-                  <td>DUI</td>
-                  <td>01/2019</td>
-                  <td>5000 N Willamette Blvd</td>
-                </tr>
-                <tr>
-                  <td>HOMICIDE</td>
-                  <td>09/2004</td>
-                  <td>Dog St</td>
-                </tr>
+            <div class="item3">
+              <!-- Filtering Table -->
+              <h2>Product Table</h2>
+              <p>Key in your input to filter the table:</p>
+
+              <input type="text" id="myinput" placeholder="Search..." title="Type in something">
+
+              <p>Click on the header of a column to sort the table:</p>
+
+              <table>
+                <thead><tr>
+                  <th><span id="crimetype" class="w3-button table-column">Crime Type <i class="caret"></span></th>
+                  <th><span id="district" class="w3-button table-column">District <i class="caret"></span></th>
+                  <th><span id="date" class="w3-button table-column">Date <i class="caret"></span></th>
+                </tr></thead>
+                <tbody id="mytable"></tbody>
               </table>
+              <script src="javascripts/table-filter.js"></script> <!-- Change based on location -->
             </div>
             <!-- <div id="chart" class="tablecontent">
                 <h1>Charts</h1>
