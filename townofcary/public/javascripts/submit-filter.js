@@ -31,11 +31,7 @@ $(document).ready(function(){
             removeData(donutChart);
             updateChart();
         }, 'json');
-<<<<<<< Updated upstream
-
-=======
- 
->>>>>>> Stashed changes
+        
         //This function must return false or the page reloads
         //note: if this function fails to reach this line the page reloads
         return false;
