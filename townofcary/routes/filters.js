@@ -15,8 +15,10 @@ function countCrimes(data){
     var counts = [];
     var foundCrime = false;
 
+    //runs through each data point
     for(const row of data){
         foundCrime = false;
+        //if the crime is already in the array add 1 to the count
         for(var i = 0; i < crimeTypes.length; i++){
             if(row.crime == crimeTypes[i]){
                 counts[i]++;
@@ -24,12 +26,14 @@ function countCrimes(data){
                 break;
             }
         }
+        //if the crime is not in our array add it to the array with a count of 1
         if(!foundCrime){
             crimeTypes.push(row.crime);
             counts.push(1);
         }
     }
 
+    //converts the array to a json object
     var arr = [];
     for(var i = 0; i < crimeTypes.length; i++){
         var obj = {
@@ -38,8 +42,7 @@ function countCrimes(data){
         }
         arr.push(obj);
     }
-
-    console.log(arr);
+    
     return arr;
 }
 
