@@ -23,16 +23,15 @@ $(document).ready(function(){
             location: "location"
         },
         function(data){
-            console.log(tableData);
+            //load data into table
             tableData = data.data;
-            console.log(tableData);
             populateTable();
+            //load data into charts
+            removeData(barChart);
+            removeData(donutChart);
+            updateChart();
         }, 'json');
-
-        removeData(barChart);
-        removeData(donutChart);
-        updateChart();
- 
+        
         //This function must return false or the page reloads
         //note: if this function fails to reach this line the page reloads
         return false;
