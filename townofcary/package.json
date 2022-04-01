@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "build": "nexe ./bin/www -r ./**/* --build -o cary.exe",
     "test": "jest --env=jsdom --coverage && codecov"
   },
   "dependencies": {
@@ -20,5 +21,6 @@
   },
   "devDependencies": {
     "jest": "^27.4.7"
-  }
+  },
+  "bin": "./bin/www"
 }
