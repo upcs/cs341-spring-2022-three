@@ -19,7 +19,7 @@ $(document).ready(function(){
             //TODO: implement crime and location filter
             //crimes and location are hard coded for now
             //-Ben
-            crimes: ["Fraud", "Alcohol Offenses"],
+            crimes: [],
             location: "location"
         },
         function(data){
