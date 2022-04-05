@@ -14,7 +14,7 @@ function countCrimes(data){
     var crimeTypes = [];
     var counts = [];
     var foundCrime = false;
-
+    
     for(const row of data){
         foundCrime = false;
         for(var i = 0; i < crimeTypes.length; i++){
