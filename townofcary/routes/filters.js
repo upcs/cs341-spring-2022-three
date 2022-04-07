@@ -50,12 +50,12 @@ function countCrimes(data){
 function generateSql(obj){
     
     var sqlCommand = "SELECT * FROM crimedata";
-    
+
     //this variable is just ensuring that the WHERE part of the sql command is added only once
     var where = false;
     
     //adds any crime filters that are needed for the sql command
-    if(obj.crimes !== ''){
+    if(typeof obj.crimes !== 'undefined'){
         typeSql = "(crime = '" + obj.crimes[0] + "'";
         for(var i = 1; i < obj.crimes.length; i++){
             typeSql += " OR crime = '" + obj.crimes[i] + "'";
@@ -64,7 +64,7 @@ function generateSql(obj){
         sqlCommand += " WHERE " + typeSql;
         where = true;
     }
-    
+
     //adds any date range filters that are needed for the sql command
     if(obj.startdate != '' && obj.enddate != ''){
         if(where){
@@ -81,7 +81,7 @@ function generateSql(obj){
 
 // Listens for post requests
 router.post('/', function(req, res, next) {
-    
+
     sqlCommand = generateSql(req.body);
     
     //the sql command generated should be safe against sql injection exploits
