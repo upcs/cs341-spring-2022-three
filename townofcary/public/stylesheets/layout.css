@@ -4,12 +4,14 @@
 */
 /*fonts style*/
   .font1{
-    color: rgb(15, 82, 186);
-    font-family: Candara, sans-serif;
+    color: rgb(68, 93, 118);
+    text-align: left;
+    padding-top: 15px;
   }
   
   h1{
     font-family: Candara, sans-serif;  
+    padding: 0;
   }
   /*grid for each item */
   .item1 { grid-area: header; 
@@ -28,12 +30,11 @@
   .grid-container {
     display: grid;
     grid-template-areas:
-      'header header header header header header'
       'tabs tabs tabs tabs tabs tabs'
+      'header header header header header header'
       'map map map map map map'
       'table table table table table table'
-      'charts charts charts charts charts charts'
-      ;
+      'charts charts charts charts charts charts';
     grid-gap: 5px;
     background-color: rgb(64,144,121);
     padding: 10px;
@@ -45,7 +46,7 @@
     padding: 0 0;
     font-size: 30px;
   }
-
+  
   /*Table*/
 table {
   font-family: arial, sans-serif;
