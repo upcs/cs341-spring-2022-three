@@ -11,7 +11,7 @@ function incidentDrop() {
   // li: Grabs the bulleted values inside of the ul container
   li = ul.getElementsByTagName('li');
 
-  // For all li items
+  // For all li items, compare to the textbox input and determine if there's a matching sequence
   for (i = 0; i < li.length; i++) {
     a = li[i].getElementsByTagName("a")[0];
     txtValue = a.textContent || a.innerText;
@@ -35,7 +35,7 @@ function districtDrop() {
   // li: Grabs the bulleted values inside of the ul container
   li = ul.getElementsByTagName('li');
 
-  // Loop through all list items, and hide those who don't match the search query
+  // For all li items, compare to the textbox input and determine if there's a matching sequence
   for (i = 0; i < li.length; i++) {
     a = li[i].getElementsByTagName("a")[0];
     txtValue = a.textContent || a.innerText;
