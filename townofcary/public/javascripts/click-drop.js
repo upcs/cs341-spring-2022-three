@@ -46,3 +46,4 @@ function districtDrop() {
     }
   }
 }
+module.exports = {incidentDrop: incidentDrop, districtDrop: districtDrop};

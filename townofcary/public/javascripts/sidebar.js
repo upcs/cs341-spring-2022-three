@@ -8,7 +8,6 @@ function openNav() {
 	o.style.display = 'none';
     to.style.display = '';
 }
-
 function closeNav() {
 
     document.getElementById("mySidebar").style.width = "0";
@@ -16,3 +15,4 @@ function closeNav() {
 	o.style.display = '';
     to.style.display = 'none';
 }
+module.exports = {openNav: openNav, closeNav: closeNav};
