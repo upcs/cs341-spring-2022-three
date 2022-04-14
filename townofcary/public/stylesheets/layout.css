@@ -63,3 +63,15 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+.chartcontainer {
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding-bottom: 50px;
+}
+
+.chart1,
+.chart2 {
+  width: 50%;
+}
