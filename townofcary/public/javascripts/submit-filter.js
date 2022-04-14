@@ -27,11 +27,13 @@ $(document).ready(function(){
             tableData = data.data;
             console.log(tableData);
             populateTable();
+            
         }, 'json');
 
-        removeData(barChart);
-        removeData(donutChart);
+        tableData = [{crime: 'Fraud', quantity: '5'}, {crime: "Alcohol Offences", quantity: '4'}];
+
         updateChart();
+        
  
         //This function must return false or the page reloads
         //note: if this function fails to reach this line the page reloads
