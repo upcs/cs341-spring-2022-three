@@ -19,22 +19,19 @@ $(document).ready(function(){
             //TODO: implement crime and location filter
             //crimes and location are hard coded for now
             //-Ben
-            crimes: ["Fraud", "Alcohol Offenses"],
+            crimes: [],
             location: "location"
         },
         function(data){
-            console.log(tableData);
+            //load data into table
             tableData = data.data;
-            console.log(tableData);
-            populateTable();
-            
+            populateTable();        
         }, 'json');
 
-        tableData = [{crime: 'Fraud', quantity: '5'}, {crime: "Alcohol Offences", quantity: '4'}];
+        //tableData = [{crime: 'Fraud', quantity: '5'}, {crime: "Alcohol Offences", quantity: '4'}];
 
         updateChart();
-        
- 
+  
         //This function must return false or the page reloads
         //note: if this function fails to reach this line the page reloads
         return false;

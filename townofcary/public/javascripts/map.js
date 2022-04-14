@@ -1,7 +1,7 @@
-
+// The access token for MapBox
 mapboxgl.accessToken = 'pk.eyJ1IjoiaW5vdXllZzIzIiwiYSI6ImNsMDBrYW91djBieTQzY285cnBzNDVtem8ifQ.gGlGhsPvneHkMe_jkTo-zg';
 
-
+// Creates a map from mapbox
 var map = new mapboxgl.Map({
   container: 'map', //id of container
   style: 'mapbox://styles/inouyeg23/cl00nbx3m00ei15oabya5ycyq',
@@ -9,17 +9,19 @@ var map = new mapboxgl.Map({
   zoom: 10
 });
 
-//make default cursor on map
+// Make default cursor on map
 map.getCanvas().style.cursor = 'default';
 
 let hoveredStateId = null;
 
+// Loads the map using data values from mapbox
 map.on('load', () => {
   map.addSource('townofcary', {
     'type': 'geojson',
     // Use a URL for the value for the `data` property.
     'url': 'mapbox://inouyeg23.1wqkvt6q'
   });
+  
   
   map.addLayer({
     'id': 'region_fill',

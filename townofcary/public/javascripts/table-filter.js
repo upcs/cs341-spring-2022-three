@@ -1,9 +1,16 @@
+/*
+    Source: https://betterprogramming.pub/sort-and-filter-dynamic-data-in-table-with-javascript-e7a1d2025e3c
+*/
+
+// Connects to where the table will display in the table
 var table = document.getElementById('mytable');
-var input = document.getElementById('myinput');
-var tableData = [{crime: 'Murder', quantity: '2'}];
+// Allows for CSV notation input of data from API
+var tableData = [{crime: 'Murder', quantity: '2'},{crime: 'Larceny', quantity: '5'}];
+// Symbols for changing alphabet order of data
 var caretUpClassName = 'fa fa-caret-up';
 var caretDownClassName = 'fa fa-caret-down';
 
+// 
 const sort_by = (field, reverse, primer) => {
 
   const key = primer ?
@@ -21,14 +28,12 @@ const sort_by = (field, reverse, primer) => {
   };
 };
 
-
 function clearArrow() {
-  let carets = document.getElementsByClassName('caret');
+  let carets = document.getElementsByClassName('caret'); 
   for (let caret of carets) {
     caret.className = "caret";
   }
 }
-
 
 function toggleArrow(event) {
   let element = event.target;
@@ -56,7 +61,6 @@ function toggleArrow(event) {
   populateTable();
 }
 
-
 function populateTable() {
   table.innerHTML = '';
   for (let data of tableData) {
@@ -67,52 +71,19 @@ function populateTable() {
     let quantity = row.insertCell(1);
     quantity.innerHTML = data.quantity;
   }
-  filterTable();
 }
 
-
-function filterTable() {
-  let filter = input.value.toUpperCase();
-  rows = table.getElementsByTagName("TR");
-  let flag = false;
-
-  for (let row of rows) {
-    let cells = row.getElementsByTagName("TD");
-    for (let cell of cells) {
-      if (cell.textContent.toUpperCase().indexOf(filter) > -1) {
-        if (filter) {
-          cell.style.backgroundColor = 'yellow';
-        } else {
-          cell.style.backgroundColor = '';
-        }
-
-        flag = true;
-      } else {
-        cell.style.backgroundColor = '';
-      }
-    }
-
-    if (flag) {
-      row.style.display = "";
-    } else {
-      row.style.display = "none";
-    }
-
-    flag = false;
-  }
-}
-
-
+// Actually populates the table
 populateTable();
 
+// Finds the table column elements
 let tableColumns = document.getElementsByClassName('table-column');
 
+// Iterates through each table column
 for (let column of tableColumns) {
+  // Assigns a click listener in the column header of each column
   column.addEventListener('click', function(event) {
+    // Initiate arrow with click
     toggleArrow(event);
   });
 }
-
-input.addEventListener('keyup', function(event) {
-  filterTable();
-});
