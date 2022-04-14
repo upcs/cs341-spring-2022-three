@@ -25,13 +25,13 @@ $(document).ready(function(){
         function(data){
             //load data into table
             tableData = data.data;
-            populateTable();
-            //load data into charts
-            removeData(barChart);
-            removeData(donutChart);
-            updateChart();
+            populateTable();        
         }, 'json');
-        
+
+        //tableData = [{crime: 'Fraud', quantity: '5'}, {crime: "Alcohol Offences", quantity: '4'}];
+
+        updateChart();
+  
         //This function must return false or the page reloads
         //note: if this function fails to reach this line the page reloads
         return false;
