@@ -30,8 +30,8 @@
     <body>
         <div class="grid-container" id="main">
           <div class="item1">
-                <!-- Title Page Information or Subtitles-->
-
+            <!-- Title Page Information or Subtitles-->
+            <img style="float: left; width: 150px; padding: 15px;" src="images/logo.png" alt="placeholder" >
             <h1 class="font1">Cary Police Incident Visualization</h1>
           </div>
             <div id="mySidebar" class="sidenav">
@@ -39,7 +39,7 @@
                   <table>
                     <tr>
                       <script src="javascripts/click-drop.js"></script>
-                      <input type="text" id="myInput" name="crime-type" onkeyup="myFunction()" placeholder="Search for crime types..." title="Type in a name">
+                      <input type="text" id="myInput" name="crime-type" onkeyup="incidentDrop()" placeholder="Search for incident type..." title="Type in a name">
                       <ul id="myUL">
                         <li><a href="#">Aggravated Assault</a></li>
                             <li><a href="#">Alcohol Offenses</a></li>
@@ -72,7 +72,7 @@
                         </tr>
                         <tr>
                           <script src="javascripts/click-drop2.js"></script>
-                          <input type="text" id="myInput2" name="location" onkeyup="myFunction2()" placeholder="Search for districts..." title="Type in a name">
+                          <input type="text" id="myInput2" name="location" onkeyup="districtDrop()" placeholder="Search for districts..." title="Type in a name">
                           <ul id="myUL2">
                             <li><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
@@ -121,11 +121,11 @@
             </div> 
             <div class="item6">
               <div class="tab">
+                <button class="tablinks" id="one" onclick="openNav()">≡</button>
+                <button class="tablinks" id="two" onclick="closeNav()">≡</button>
                 <button class="tablinks" onclick="openCity(event, 'Map')" id="defaultOpen">Map</button>
                 <button class="tablinks" onclick="openCity(event, 'Table')">Table</button>
                 <button class="tablinks" onclick="openCity(event, 'Chart')">Chart</button>
-                <span id="one" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
-                <span  id="two"style="font-size:30px;cursor:pointer" onclick="closeNav() ">&#9776; </span>
                 <script src="javascripts/sidebar.js"></script>
               </div>
             </div>  
@@ -143,8 +143,8 @@
                 <!-- Filtering Table -->
                 <h2>Product Table</h2>
                 <p>Key in your input to filter the table:</p>
-
-                <input type="text" id="myinput" placeholder="Search..." title="Type in something">
+                <!-- IF BROKEN: UNCOMMENT THIS-->
+                <!-- input type="text" id="myinput" placeholder="Search..." title="Type in something" -->
 
                 <p>Click on the header of a column to sort the table:</p>
 

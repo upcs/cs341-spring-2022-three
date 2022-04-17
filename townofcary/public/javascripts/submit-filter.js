@@ -33,7 +33,6 @@ function sendPostReq(startdate, enddate, crimes, location){
 //This function triggers whenever the submit button is pressed
 $(document).ready(function(){
     $(document).on('submit', '#filters', function(){
-
         sendPostReq($("#startdate").val(), $("#enddate").val(), [], "location")
         
         //This function must return false or the page reloads
