@@ -79,6 +79,23 @@ function generateSql(obj){
     return sqlCommand;
 }
 
+function getCoords(data){
+    var lat = [];
+    var long = [];
+    
+    for(const row of data){
+        //remove space from the location string
+        var str = row.location.replace(/\s/g, "");
+        //split the string using the semicolon separator
+        var arr = str.split(';');
+        //add values to the arrays
+        lat.push(arr[0]);
+        long.push(arr[1]);
+    }
+    
+    return [lat, long];
+}
+
 // Listens for post requests
 router.post('/', function(req, res, next) {
 
@@ -93,12 +110,18 @@ router.post('/', function(req, res, next) {
     db.then(
         function(value) {
             //send response to client
-            res.send({data: countCrimes(value)});
+            if(req.body.location){
+                var coords = getCoords(value);
+                res.send({lat: coords[0], long: coords[1]});
+            }
+            else{
+                res.send({data: countCrimes(value)});
+            }
         },
         //in case of an error
         function(error) {
             console.log("err occured retriving data from database in filters.js");
-            res.send("error");
+            res.send(error);
         } 
     );
 });
