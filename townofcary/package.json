@@ -20,7 +20,8 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
-    "jest": "^27.4.7"
+    "jest": "^27.5.1",
+    "supertest": "^6.2.2"
   },
   "bin": "./bin/www"
 }

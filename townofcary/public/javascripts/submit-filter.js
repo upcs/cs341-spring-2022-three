@@ -2,36 +2,43 @@
 //It takes in the inputs on the filters form and sends a post request
 //author: Ben
 
-//This function triggers whenever the submit button is pressed
-$(document).ready(function(){
-    $(document).on('submit', '#filters', function(){
+//Submit a post request asking for the filtered table data
+//startdate: String - start date given in the form "YYYY-MM-DD"
+//enddate: String - end date given in the form "YYYY-MM-DD"
+//crimes: String[] - all crime types you wish to filter for
+function sendPostReq(startdate, enddate, crimes){
+    
+    //sends the post request to /routes/filters.js
+    $.post('filters',
+    {
+        startdate: startdate,
+        enddate: enddate,
+        crimes: JSON.stringify(crimes),
+        location: false
+    },
+    function(data){
+        //load data into table
+        tableData = data.data;
+        populateTable();
 
-        // This line of code affects all jquery requests
-        // Alternatives and risks should be considered
-        //  -Ben
-        $.ajaxSetup({traditional: true});
-        
-        //sends the post request to /routes/filters.js
-        $.post('filters',
-        {
-            startdate: $("#startdate").val(),
-            enddate: $("#enddate").val(),
-            //TODO: implement crime and location filter
-            //crimes and location are hard coded for now
-            //-Ben
-            crimes: [],
-            location: "location"
-        },
-        function(data){
-            //load data into table
-            tableData = data.data;
-            populateTable();        
-        }, 'json');
-
-        //tableData = [{crime: 'Fraud', quantity: '5'}, {crime: "Alcohol Offences", quantity: '4'}];
-
+        //load data into charts
+        removeData(barChart);
+        removeData(donutChart);
         updateChart();
-  
+    });
+}
+
+$(document).ready(function(){
+    //Starts the page with the data already loaded
+    sendPostReq($("#startdate").val(), $("#enddate").val(), []);
+    
+    //This function triggers whenever the submit button is pressed
+    $(document).on('submit', '#filters', function(){
+        //TODO: implement crime filter
+        //crimes are hard coded for now
+        //-Ben
+        sendPostReq($("#startdate").val(), $("#enddate").val(), []);
+        
         //This function must return false or the page reloads
         //note: if this function fails to reach this line the page reloads
         return false;
