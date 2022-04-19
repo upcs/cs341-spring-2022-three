@@ -23,7 +23,12 @@
   }
   .item2 { grid-area: tabs;}
   .item3 { grid-area: table;}
-  .item4 { grid-area: map;}
+  .item4 { grid-area: map;
+    background-image: url("../images/flower.png");
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 250px;
+  }
   .item5 { grid-area: charts; }
   
   .grid-container {
