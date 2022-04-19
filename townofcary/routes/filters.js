@@ -8,7 +8,7 @@ var express = require('express');
 var dbms = require('./dbms_promise.js');
 var router = express.Router();
 
-//generates a json object containing the number of crimes
+//generates a js object containing the number of crimes
 //sorted by crime type
 function countCrimes(data){
     var crimeTypes = [];
@@ -33,7 +33,7 @@ function countCrimes(data){
         }
     }
 
-    //converts the array to a json object
+    //converts the array to a js object
     var arr = [];
     for(var i = 0; i < crimeTypes.length; i++){
         var obj = {
@@ -54,11 +54,13 @@ function generateSql(obj){
     //this variable is just ensuring that the WHERE part of the sql command is added only once
     var where = false;
 
+    crimes = JSON.parse(obj.crimes);
+
     //adds any crime filters that are needed for the sql command
-    if(typeof obj.crimes !== 'undefined'){
-        typeSql = "(crime = '" + obj.crimes[0] + "'";
-        for(var i = 1; i < obj.crimes.length; i++){
-            typeSql += " OR crime = '" + obj.crimes[i] + "'";
+    if(crimes.length > 0){
+        typeSql = "(crime = '" + crimes[0] + "'";
+        for(var i = 1; i < crimes.length; i++){
+            typeSql += " OR crime = '" + crimes[i] + "'";
         }
         typeSql += ")";
         sqlCommand += " WHERE " + typeSql;
@@ -110,7 +112,8 @@ router.post('/', function(req, res, next) {
     db.then(
         function(value) {
             //send response to client
-            if(req.body.location){
+            console.log(req.body)
+            if(JSON.parse(req.body.location)){
                 var coords = getCoords(value);
                 res.send({lat: coords[0], long: coords[1]});
             }
@@ -122,7 +125,7 @@ router.post('/', function(req, res, next) {
         function(error) {
             console.log("err occured retriving data from database in filters.js");
             res.send(error);
-        } 
+        }
     );
 });
 
