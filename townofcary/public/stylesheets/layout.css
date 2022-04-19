@@ -21,9 +21,10 @@
     background-size: cover; 
   }
   .item2 { grid-area: menu;}
-  .item3 { grid-area: table;}
+  /* .item3 { grid-area: table;}
   .item4 { grid-area: map;}
-  .item5 { grid-area: charts; }
+  .item5 { grid-area: charts; } */
+  .item7{grid-area: tabcontents;}
   .item6 { grid-area: tabs; }
   
   
@@ -32,9 +33,9 @@
     grid-template-areas:
       'tabs tabs tabs tabs tabs tabs'
       'header header header header header header'
-      'map map map map map map'
-      'table table table table table table'
-      'charts charts charts charts charts charts';
+      'tabcontents tabcontents tabcontents tabcontents tabcontents tabcontents'
+      'tabcontents tabcontents tabcontents tabcontents tabcontents tabcontents'
+      'tabcontents tabcontents tabcontents tabcontents tabcontents tabcontents';
     grid-gap: 5px;
     background-color: rgb(64,144,121);
     padding: 10px;
