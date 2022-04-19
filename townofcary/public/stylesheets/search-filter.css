@@ -2,15 +2,7 @@
     Searchable Dropdown Menu
     Source of Inspiration: https://www.w3schools.com/howto/howto_js_filter_lists.asp
 */
-
-/* * {
-    box-sizing: border-box;
-} */
-
-/*
-    FIRST DROPDOWN CSS
-*/
-                    
+            
 #myInput {
     background-image: url('/css/searchicon.png');
     background-position: 10px 12px;
