@@ -7,7 +7,7 @@ function sendPostReq(startdate, enddate, crimes, location){
     // Alternatives and risks should be considered
     //  -Ben
     $.ajaxSetup({traditional: true});
-     
+    
     //sends the post request to /routes/filters.js
     $.post('filters',
     {
@@ -22,6 +22,7 @@ function sendPostReq(startdate, enddate, crimes, location){
     function(data){
         //load data into table
         tableData = data.data;
+
         populateTable();
         //load data into charts
         removeData(barChart);
@@ -32,8 +33,11 @@ function sendPostReq(startdate, enddate, crimes, location){
 
 //This function triggers whenever the submit button is pressed
 $(document).ready(function(){
+    //Starts the page with the data already loaded
+    sendPostReq($("#startdate").val(), $("#enddate").val(), [], "location");
+    
     $(document).on('submit', '#filters', function(){
-        sendPostReq($("#startdate").val(), $("#enddate").val(), [], "location")
+        sendPostReq($("#startdate").val(), $("#enddate").val(), [], "location");
         
         //This function must return false or the page reloads
         //note: if this function fails to reach this line the page reloads
