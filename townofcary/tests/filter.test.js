@@ -1,6 +1,14 @@
+//This file is for unit testing POST requests
+//We run this will send POST requests to filters.js and confirm that the 
+//responses are as expected
+//This file will not be accurate if the database data is altered
+//author: Ben Chong
+
+//We use the supertest module on top of jest to make this work
 const request = require("supertest");
 const app = require("../app.js");
 
+//These arrays are hard coded values that the tests cases expect
 const arr0 = [{crime: 'Fraud', quantity: 9145}, {crime: 'All Other Offenses', quantity: 13735},
                {crime: 'Gambling', quantity: 6}, {crime: 'Murder', quantity: 23},
                {crime: 'Larceny', quantity: 30627}, {crime: 'Vandalism', quantity: 9828},
@@ -43,27 +51,42 @@ const arr1long = ['-78.79265129','-78.78973253','-78.82537181','-78.7673183','-7
             '-78.77693882','-78.785302','-78.77024951','-78.75931174','-78.86673437','-78.76677591'];
 
 describe("Test Sending Post Requests to /filters", () => {
+    //Testing with location as false and not filtering by any params
+    //This first test is commented in detail to explain what's going on in these tests
     test("Location False and Capturing All Data", (done) => {
+        //testing requests are dependent on app.js
         request(app)
+        //send a post request to the filters router
         .post("/filters")
+        //send the post request with the following data
         .send({
-            startdate: "2000-01-01",
-            enddate: "2023-01-01",
+            startdate: "",
+            enddate: "",
             crimes: JSON.stringify([]),
             location: false
         })
+        //expect a reply with a 200 OK status
         .expect(200)
+        //run this code once the response is rcvd
         .end((err, res) => {
+            //if an error is rcvd fail the test
             if (err) return done(err);
             try {
+                //if the response matches the expected data
                 expect(res.body.data).toEqual(arr0);
+                //the test succeeds
                 done();
+            //if the response does not match the expected data
             } catch (error) {
+                //the test fails
                 done(error);
             }
         });
     });
-    test("POST /filters", (done) => {
+    //Testing with location set to true and a small data range
+    //Ideally this test would capture all data but it would be impractical
+    //because the response tens of thousands of entries long
+    test("Location True and Filtering by Date", (done) => {
         request(app)
         .post("/filters")
         .send({

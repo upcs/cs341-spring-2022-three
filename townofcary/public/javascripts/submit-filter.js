@@ -3,7 +3,9 @@
 //author: Ben
 
 //Submit a post request asking for the filtered table data
-//startdate: String - 
+//startdate: String - start date given in the form "YYYY-MM-DD"
+//enddate: String - end date given in the form "YYYY-MM-DD"
+//crimes: String[] - all crime types you wish to filter for
 function sendPostReq(startdate, enddate, crimes){
     
     //sends the post request to /routes/filters.js
@@ -11,18 +13,14 @@ function sendPostReq(startdate, enddate, crimes){
     {
         startdate: startdate,
         enddate: enddate,
-        //TODO: implement crime filter
-        //crimes are hard coded for now
-        //-Ben
         crimes: JSON.stringify(crimes),
         location: false
     },
     function(data){
         //load data into table
-        console.log(data);
         tableData = data.data;
-        
         populateTable();
+
         //load data into charts
         removeData(barChart);
         removeData(donutChart);
@@ -30,14 +28,15 @@ function sendPostReq(startdate, enddate, crimes){
     });
 }
 
-//This function triggers whenever the submit button is pressed
 $(document).ready(function(){
     //Starts the page with the data already loaded
     sendPostReq($("#startdate").val(), $("#enddate").val(), []);
     
+    //This function triggers whenever the submit button is pressed
     $(document).on('submit', '#filters', function(){
-        console.log($("#startdate").val())
-        console.log($("#enddate").val())
+        //TODO: implement crime filter
+        //crimes are hard coded for now
+        //-Ben
         sendPostReq($("#startdate").val(), $("#enddate").val(), []);
         
         //This function must return false or the page reloads
