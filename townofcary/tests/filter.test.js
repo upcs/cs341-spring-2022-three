@@ -9,15 +9,15 @@ const request = require("supertest");
 const app = require("../app.js");
 
 //These arrays are hard coded values that the tests cases expect
-const arr0 = [{crime: 'Fraud', quantity: 9145}, {crime: 'All Other Offenses', quantity: 13735},
+const arr0 = [{crime: 'Fraud', quantity: 9150}, {crime: 'All Other Offenses', quantity: 13743},
                {crime: 'Gambling', quantity: 6}, {crime: 'Murder', quantity: 23},
-               {crime: 'Larceny', quantity: 30627}, {crime: 'Vandalism', quantity: 9828},
+               {crime: 'Larceny', quantity: 30630}, {crime: 'Vandalism', quantity: 9828},
                {crime: 'Suicide', quantity: 1100}, {crime: 'Traffic Except DWI', quantity: 2475},
                {crime: 'DUI', quantity: 3031}, {crime: 'Burglary', quantity: 7272},
-               {crime: 'Forgery', quantity: 1339}, {crime: 'Disorderly Conduct', quantity: 403},
+               {crime: 'Forgery', quantity: 1341}, {crime: 'Disorderly Conduct', quantity: 403},
                {crime: 'Drunkenness', quantity: 351}, {crime: 'Drugs', quantity: 5223},
                {crime: 'Pornography', quantity: 54}, {crime: 'Aggravated Assault', quantity: 963},
-               {crime: 'Simple Assault', quantity: 8082}, {crime: 'Arson', quantity: 149},
+               {crime: 'Simple Assault', quantity: 8083}, {crime: 'Arson', quantity: 149},
                {crime: 'Embezzlement', quantity: 895}, {crime: 'Weapons', quantity: 566},
                {crime: 'Stolen Property', quantity: 355}, {crime: 'Alcohol Offenses', quantity: 335},
                {crime: 'Missing Person', quantity: 920}, {crime: 'Motor Vehicle Theft', quantity: 1978},
@@ -51,9 +51,9 @@ const arr1long = ['-78.79265129','-78.78973253','-78.82537181','-78.7673183','-7
             '-78.77693882','-78.785302','-78.77024951','-78.75931174','-78.86673437','-78.76677591'];
 
 describe("Test Sending Post Requests to /filters", () => {
-    //Testing with location as false and not filtering by any params
+    //Testing not filtering by any params
     //This first test is commented in detail to explain what's going on in these tests
-    test("Location False and Capturing All Data", (done) => {
+    test("Capturing All Data", (done) => {
         //testing requests are dependent on app.js
         request(app)
         //send a post request to the filters router
@@ -83,17 +83,16 @@ describe("Test Sending Post Requests to /filters", () => {
             }
         });
     });
-    //Testing with location set to true and a small data range
+    //Testing with a small data range
     //Ideally this test would capture all data but it would be impractical
     //because the response tens of thousands of entries long
-    test("Location True and Filtering by Date", (done) => {
+    test("Filtering by Date", (done) => {
         request(app)
         .post("/filters")
         .send({
             startdate: "2015-03-09",
             enddate: "2015-03-15",
-            crimes: JSON.stringify([]),
-            location: true
+            crimes: JSON.stringify([])
         })
         .expect(200)
         .end((err, res) => {
