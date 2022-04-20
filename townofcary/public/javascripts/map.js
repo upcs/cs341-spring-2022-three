@@ -45,33 +45,12 @@ map.on('load', () => {
     }
   });
 
-  map.on('mousemove', 'state-fills', (e) => {
-    if (e.features.length > 0) {
-      if (hoveredStateId !== null) {
-        map.setFeatureState(
-          { source: 'townofcary', id: hoveredStateId },
-          { hover: false }
-        );
-      }
-      hoveredStateId = e.features[0].id;
-      map.setFeatureState(
-        { source: 'townofcary', id: hoveredStateId },
-        { hover: true }
-      );
-    }
-  });
-     
-    // When the mouse leaves the state-fill layer, update the feature state of the
-    // previously hovered feature.
-    map.on('mouseleave', 'state-fills', () => {
-      if (hoveredStateId !== null) {
-        map.setFeatureState(
-          { source: 'townofcary', id: hoveredStateId },
-          { hover: false }
-        );
-      }
-      hoveredStateId = null;
-    });
+  for(var i = 0; i < tableData.length; i++){
+    console.log("lat: " + latData[i]);
+    console.log("long: " + longData[i]);
+    //var marker = new mapboxgl.Marker().setLngLat([tableData[i].long, tableData[i].lat]).addTo(map);
+    
+  }
 
   // Add the searchbar to the map.
   map.addControl(
@@ -81,4 +60,22 @@ map.on('load', () => {
     })
   );
 });
+
+allMarkers = [];
+
+function updateMarkers() {
+  for(var i = 0; i < tableData.length; i++){
+    console.log("lat: " + tableData[i].lat);
+    console.log("long: " + tableData[i].long);
+    var marker = new mapboxgl.Marker().setLngLat([tableData[i].long, tableData[i].lat]).addTo(map);
+    
+    //allMarkers.push(marker);
+  }
+}
+
+function removeMarkers() {
+  for(var i = 0; i < tableData.length; i++){
+    marker.remove();
+  }
+}
 

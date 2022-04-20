@@ -10,6 +10,7 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+    <script src="https://github.com/mapbox/mapbox-gl-js/blob/0071ce73ec481ed38fe50e63fcbfb935c1b76657/src/ui/marker.js#L62-L759"></script>
 
     <!-- Item 3: Filtering Table-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,70 +40,38 @@
                   <table>
                     <tr>
                       <script src="javascripts/click-drop.js"></script>
-                      <input type="text" id="myInput" name="crime-type" onkeyup="incidentDrop()" placeholder="Search for incident type..." title="Type in a name">
-                      <ul id="myUL">
-                        <li><a href="#">Aggravated Assault</a></li>
-                            <li><a href="#">Alcohol Offenses</a></li>
-                            <li><a href="#">All Other Offenses</a></li>
-                            <li><a href="#">Arson</a></li>
-                            <li><a href="#">Burglary</a></li>
-                            <li><a href="#">Calls for Service</a></li>
-                            <li><a href="#">Disorderly Conduct</a></li>
-                            <li><a href="#">Drugs</a></li>
-                            <li><a href="#">Drunkeness</a></li>
-                            <li><a href="#">DUI</a></li>
-                            <li><a href="#">Embezzlement</a></li>
-                            <li><a href="#">Forgery</a></li>
-                            <li><a href="#">Fraud</a></li>
-                            <li><a href="#">Gambling</a></li>
-                            <li><a href="#">Larceny</a></li>
-                            <li><a href="#">Missing Person</a></li>
-                            <li><a href="#">Motor Vehicle Theft</a></li>
-                            <li><a href="#">Murder</a></li>
-                            <li><a href="#">Non Criminal Detain</a></li>
-                            <li><a href="#">Non Negligent Traff</a></li>
-                            <li><a href="#">Pornography</a></li>
-                            <li><a href="#">Simple Assault</a></li>
-                            <li><a href="#">Stolen Property</a></li>
-                            <li><a href="#">Suicide</a></li>
-                            <li><a href="#">Traffic Except DWI</a></li>
-                            <li><a href="#">Vandalism</a></li>
-                            <li><a href="#">Weapons</a></li>
-                          </ul>
-                        </tr>
-                        <tr>
-                          <script src="javascripts/click-drop2.js"></script>
-                          <input type="text" id="myInput2" name="location" onkeyup="districtDrop()" placeholder="Search for districts..." title="Type in a name">
-                          <ul id="myUL2">
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li><a href="#">9</a></li>
-                            <li><a href="#">10</a></li>
-                            <li><a href="#">11</a></li>
-                            <li><a href="#">12</a></li>
-                            <li><a href="#">13</a></li>
-                            <li><a href="#">14</a></li>
-                            <li><a href="#">15</a></li>
-                            <li><a href="#">16</a></li>
-                            <li><a href="#">17</a></li>
-                            <li><a href="#">18</a></li>
-                            <li><a href="#">19</a></li>
-                            <li><a href="#">20</a></li>
-                            <li><a href="#">21</a></li>
-                            <li><a href="#">22</a></li>
-                            <li><a href="#">23</a></li>
-                            <li><a href="#">24</a></li>
-                            <li><a href="#">25</a></li>
-                            <li><a href="#">26</a></li>
-                          </ul>
-                        </tr>
-                        <tr>
+                      <input type="text" id="myInput" class="dropdown" name="crime-type" onkeyup="incidentDrop()" placeholder="Search for incident type..." title="Type in a name"></input>
+                        <ul id="myUL">
+                          <li><a href="#">Aggravated Assault</a></li>
+                          <li><a href="#">Alcohol Offenses</a></li>
+                          <li><a href="#">All Other Offenses</a></li>
+                          <li><a href="#">Arson</a></li>
+                          <li><a href="#">Burglary</a></li>
+                          <li><a href="#">Calls for Service</a></li>
+                          <li><a href="#">Disorderly Conduct</a></li>
+                          <li><a href="#">Drugs</a></li>
+                          <li><a href="#">Drunkeness</a></li>
+                          <li><a href="#">DUI</a></li>
+                          <li><a href="#">Embezzlement</a></li>
+                          <li><a href="#">Forgery</a></li>
+                          <li><a href="#">Fraud</a></li>
+                          <li><a href="#">Gambling</a></li>
+                          <li><a href="#">Larceny</a></li>
+                          <li><a href="#">Missing Person</a></li>
+                          <li><a href="#">Motor Vehicle Theft</a></li>
+                          <li><a href="#">Murder</a></li>
+                          <li><a href="#">Non Criminal Detain</a></li>
+                          <li><a href="#">Non Negligent Traff</a></li>
+                          <li><a href="#">Pornography</a></li>
+                          <li><a href="#">Simple Assault</a></li>
+                          <li><a href="#">Stolen Property</a></li>
+                          <li><a href="#">Suicide</a></li>
+                          <li><a href="#">Traffic Except DWI</a></li>
+                          <li><a href="#">Vandalism</a></li>
+                          <li><a href="#">Weapons</a></li>
+                        </ul>
+                    </tr>
+                    <tr>
                           <label>Filter Start:
                             <input type="date" id="startdate" value="2000-01-01" min="2000-01-01" max="2023-01-01">
                           </label>
@@ -119,7 +88,7 @@
                       </table>
                     </form>
             </div> 
-            <div class="item6">
+            <div class="item2">
               <div class="tab">
                 <button class="tablinks" id="one" onclick="openNav()">≡</button>
                 <button class="tablinks" id="two" onclick="closeNav()">≡</button>
@@ -141,13 +110,7 @@
             <div class="item3">
               <div id="Table" class="tabcontent">
                 <!-- Filtering Table -->
-                <h2>Product Table</h2>
-                <p>Key in your input to filter the table:</p>
-                <!-- IF BROKEN: UNCOMMENT THIS-->
-                <!-- input type="text" id="myinput" placeholder="Search..." title="Type in something" -->
-
                 <p>Click on the header of a column to sort the table:</p>
-
               <table>
                 <thead><tr>
                   <th><span id="crime" class="w3-button table-column">Crime Type <i class="caret"></span></th>
@@ -159,11 +122,20 @@
               </div>
             </div>
             <div class="item5">
-              <div id="chart" class="tablecontent">
+              <div id="Chart" class="tabcontent">
                 <h1>Charts</h1>
-                <canvas id="barChart" style="width:100%;max-width:600px"></canvas>
-                <canvas id="doughnutChart" style="width:100%;max-width:600px"></canvas>
+                <div class="chartcontainer">
+                  <canvas class="chart1" id="barChart" style="width:100%;max-width:600px"></canvas>
+                <canvas class="chart2" id="doughnutChart" style="width:100%;max-width:600px"></canvas>
                 <script src="javascripts/charts.js"></script>
+                </div>
+                
+              </div> 
+            </div>
+            <div class="item6">
+              <div id="AboutUs" class="tabcontent">
+                <h1>About Us</h1>
+                
               </div> 
             </div>
             <script src="javascripts/tabs.js"></script>

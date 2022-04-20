@@ -2,15 +2,7 @@
     Searchable Dropdown Menu
     Source of Inspiration: https://www.w3schools.com/howto/howto_js_filter_lists.asp
 */
-
-/* * {
-    box-sizing: border-box;
-} */
-
-/*
-    FIRST DROPDOWN CSS
-*/
-                    
+            
 #myInput {
     background-image: url('/css/searchicon.png');
     background-position: 10px 12px;
@@ -44,84 +36,12 @@
 }
 
 /*
-    SECOND DROPDOWN CSS
-*/
-
-#myInput2 {
-    background-image: url('/css/searchicon.png');
-    background-position: 10px 12px;
-    background-repeat: no-repeat;
-    width: 100%;
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
-    border: 1px solid #ddd;
-    margin-bottom: 12px;
-}
-                    
-#myUL2 {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-                    
-#myUL2 li a {
-    border: 1px solid #ddd;
-    margin-top: -1px; /* Prevent double borders */
-    background-color: #f6f6f6;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-    display: block
-}
-                    
-#myUL2 li a:hover:not(.header) {
-    background-color: #eee;
-}
-
-/*
-    THIRD DROPDOWN CSS
-*/
-
-#myInput3 {
-    background-image: url('/css/searchicon.png');
-    background-position: 10px 12px;
-    background-repeat: no-repeat;
-    width: 100%;
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
-    border: 1px solid #ddd;
-    margin-bottom: 12px;
-}
-                    
-#myUL3 {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-                    
-#myUL3 li a {
-    border: 1px solid #ddd;
-    margin-top: -1px; /* Prevent double borders */
-    background-color: #f6f6f6;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-    display: block
-}
-                    
-#myUL3 li a:hover:not(.header) {
-    background-color: #eee;
-}
-
-/*
     Scrollbar for Searchable Filters
     Source: https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp
 */
 
 /* width */
-::-webkit-scrollbar {
+::-webkit-scrollbar  {
     width: 10px;
   }
   
