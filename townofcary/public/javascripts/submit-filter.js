@@ -16,14 +16,14 @@ function sendPostReq(startdate, enddate, crimes){
         crimes: JSON.stringify(crimes),
         location: false
     },
+
     function(data){
+        console.log("location false");
         //load data into table
         tableData = data.data;
         populateTable();
 
         //load data into charts
-        removeData(barChart);
-        removeData(donutChart);
         updateChart();
     });
 }
@@ -31,6 +31,7 @@ function sendPostReq(startdate, enddate, crimes){
 $(document).ready(function(){
     //Starts the page with the data already loaded
     sendPostReq($("#startdate").val(), $("#enddate").val(), []);
+    sendLocPostReq($("#startdate").val(), $("#enddate").val(), []);
     
     //This function triggers whenever the submit button is pressed
     $(document).on('submit', '#filters', function(){
@@ -38,6 +39,7 @@ $(document).ready(function(){
         //crimes are hard coded for now
         //-Ben
         sendPostReq($("#startdate").val(), $("#enddate").val(), []);
+        sendLocPostReq($("#startdate").val(), $("#enddate").val(), []);
         
         //This function must return false or the page reloads
         //note: if this function fails to reach this line the page reloads
