@@ -9,33 +9,28 @@ var dbms = require('./dbms_promise.js');
 var router = express.Router();
 
 // ---------------------- POST /filters -----------------------------------
-// Post requests sent to this router are received as an object with 4 fields
+// Post requests sent to this router are received as an object with 3 fields
 // startdate, enddate -> These fields must be strings matching the HTML format for
 // dates used by <input type="date">, which is "YYYY-MM-DD"
 // If the you wish to ignore the date range, set startdate or enddate to ""
 // crimes -> This must be a JSON string representing an array. Use JSON.stringify(myArr)
 // If the you wish to ignore the crime type, set crimes to "[]"
-// location -> This must be a JSON string representing a boolean.
 //
-// Replies are either sent in a different form depending on location's value
-// If location is 'true', then the response will be an object containing 2 fields
-// lat, long -> These are arrays of equal size giving the coords of all matching crime reports
-// If location is 'false', then the response will be an object with 1 field
+// Replies are an object with 3 fields
 // data -> This will contain an array of Objects that each have 2 fields
 // These objects have the fields crime and quantity. crime will be a given crime type, and
 // quantity will be the number of matching reports that fall under that type
+// lat, long -> These are arrays of equal size giving the coords of all matching crime reports
 //
 // Example:
-// Request - {startdate: "2012-04-08", enddate: "2012-04-14", crimes: "[Fraud]", location: 'true'}
-// Response - {lat: ['35.77', '35.22', '34.95'], long: ['-78.65', '-79.12', '-78.83']}
-// Request - {startdate: "2012-04-08", enddate: "2012-04-14", crimes: "[Fraud]", location: 'false'}
-// Response - {data: [{crime: 'Fraud', quantity: 3}]}
+// Request - {startdate: "2012-04-08", enddate: "2012-04-14", crimes: "[Fraud]"}
+// Response - {data: [{crime: 'Fraud', quantity: 3}], lat: ['35.77', '35.22', '34.95'], long: ['-78.65', '-79.12', '-78.83']}
 // From this we can tell 3 counts of Fraud occured the week of April 4th, 2012 and they happened
 // at the coordinates 35.77,-78.65 and 35.22,-79,12 and 34.95,-78.83
 // -------------------------------------------------------------------------
 
 //generates an object containing the number of crimes sorted by crime type
-//data: Obj[] - Each obj is a crime report and contains date, crime, and location
+//data: Obj[] - Each obj is a crime report and contains date and crime
 //returns: Obj[] - Each obj contains a crime type, and the quantity of those reports
 function countCrimes(data){
     var crimeTypes = [];
@@ -142,15 +137,8 @@ router.post('/', function(req, res, next) {
     db.then(
         function(value) {
             //send response to client
-            console.log(req.body)
-            //check if location is 'true' to determine response
-            if(JSON.parse(req.body.location)){
-                var coords = getCoords(value);
-                res.send({lat: coords[0], long: coords[1]});
-            }
-            else{
-                res.send({data: countCrimes(value)});
-            }
+            coords = getCoords(value)
+            res.send({data: countCrimes(value), lat: coords[0], long: coords[1]});
         },
         //in case of an error
         function(error) {

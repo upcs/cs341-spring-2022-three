@@ -13,12 +13,13 @@ function sendPostReq(startdate, enddate, crimes){
     {
         startdate: startdate,
         enddate: enddate,
-        crimes: JSON.stringify(crimes),
-        location: false
+        crimes: JSON.stringify(crimes)
     },
     function(data){
         //load data into table
         tableData = data.data;
+        console.log(data.lat);
+        console.log(data.long);
         populateTable();
 
         //load data into charts
