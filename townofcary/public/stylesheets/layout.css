@@ -80,3 +80,7 @@ tr:nth-child(even) {
 .chart2 {
   width: 50%;
 }
+
+label {
+  text-align: left;
+}
