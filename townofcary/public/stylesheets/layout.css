@@ -4,12 +4,15 @@
 */
 /*fonts style*/
   .font1{
-    color: rgb(15, 82, 186);
-    font-family: Candara, sans-serif;
+    color: rgb(128, 207, 237);
+    text-align: left;
+    padding-top: 15px;
+    -webkit-text-stroke:1px black;
   }
   
   h1{
     font-family: Candara, sans-serif;  
+    padding: 0;
   }
   /*grid for each item */
   .item1 { grid-area: header; 
@@ -18,23 +21,26 @@
     background-position: center;
     background-size: cover; 
   }
-  .item2 { grid-area: menu;}
+  .item2 { grid-area: tabs;}
   .item3 { grid-area: table;}
-  .item4 { grid-area: map;}
+  .item4 { grid-area: map;
+    background-image: url("../images/flower.png");
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 250px;
+  }
   .item5 { grid-area: charts; }
-  .item6 { grid-area: tabs; }
-  
   
   .grid-container {
     display: grid;
     grid-template-areas:
-      'header header header header header header'
       'tabs tabs tabs tabs tabs tabs'
+      'header header header header header header'
       'map map map map map map'
       'table table table table table table'
-      'charts charts charts charts charts charts'
-      ;
-    grid-gap: 5px;
+      'charts charts charts charts charts charts';
+    /* grid-gap: 5px; */
+
     background-color: rgb(64,144,121);
     padding: 10px;
   }
@@ -42,10 +48,10 @@
   .grid-container > div {
     background-color: rgba(254, 255, 252, 0.8);
     text-align: center;
-    padding: 0 0;
+    /* padding: 0 0; */
     font-size: 30px;
   }
-
+  
   /*Table*/
 table {
   font-family: arial, sans-serif;
@@ -61,4 +67,16 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+.chartcontainer {
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding-bottom: 50px;
+}
+
+.chart1,
+.chart2 {
+  width: 50%;
 }

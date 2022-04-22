@@ -1,8 +1,8 @@
 /* Style the tab */
 .tab {
     overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    border: 1px solid rgb(173, 213, 196);
+    background-color: rgb(173, 213, 196);
   }
   
   /* Style the buttons inside the tab */
@@ -14,12 +14,12 @@
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
-    font-size: 17px;
+    font-size: 20px;
   }
   
   /* Change background color of buttons on hover */
   .tab button:hover {
-    background-color: #ddd;
+    background-color: rgba(212, 238, 229, 0.963);
   }
   
   /* Create an active/current tablink class */
@@ -32,6 +32,7 @@
     /* color: white; */
     display: none;
     /* padding: 100px 20px; */
+    padding: 0%;
     height: 100%;
   }
   
