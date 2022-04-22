@@ -22,4 +22,4 @@ function incidentDrop() {
     }
   }
 }
-module.exports = {incidentDrop: incidentDrop, districtDrop: districtDrop};
+module.exports = {incidentDrop: incidentDrop};
