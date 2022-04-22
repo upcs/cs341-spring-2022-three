@@ -1,4 +1,4 @@
-//Unit testing gile for sidebar.js
+//Unit testing file for sidebar.js
 //Author: Connor Morgan
 
 //test the sidebar
