@@ -4,7 +4,6 @@
 //test the sidebar
 var fs = require('fs');
 
-
 test('test hamburger button functionality', () => {
     //test to make sure the file exists
     var js = fs.readFileSync('public/javascripts/sidebar.js', 'utf-8');
