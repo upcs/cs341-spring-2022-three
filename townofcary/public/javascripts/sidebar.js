@@ -26,3 +26,4 @@ function closeNav() {
     // "Two" is now invisible
     to.style.display = 'none';
 }
+module.exports = {openNav: openNav, closeNav: closeNav};

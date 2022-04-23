@@ -7,6 +7,7 @@
 //We use the supertest module on top of jest to make this work
 const request = require("supertest");
 const app = require("../app.js");
+jest.setTimeout(20000);
 
 //These arrays are hard coded values that the tests cases expect
 const arr0 = [{crime: 'Fraud', quantity: 9150}, {crime: 'All Other Offenses', quantity: 13743},
