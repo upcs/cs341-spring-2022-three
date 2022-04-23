@@ -19,12 +19,16 @@ function sendPostReq(startdate, enddate, crimes){
     function(data){
         //load data into table
         tableData = data.data;
-        console.log(data.lat);
-        console.log(data.long);
+        latData = data.lat;
+        longData = data.long;
         populateTable();
 
         //load data into charts
         updateChart();
+
+        //load markers onto the map
+        //updateMarkers(latData, longData);
+
     });
 }
 
