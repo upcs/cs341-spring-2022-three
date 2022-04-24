@@ -106,19 +106,19 @@ function generateSql(obj){
     return sqlCommand;
 }
 
-function getCoords(data){
-    var arr = []
+function getLocation(data){
+    var arr = [];
     
     for(const row of data){
         //remove space from the location string
         var str = row.location.replace(/\s/g, "");
         //split the string using the semicolon separator
-        var coords = str.split(';');
+        var coord = str.split(';');
         //add values to the arrays
         var obj = {
-            lat: coords[0],
-            long: coords[1],
-            crime: row.crimes
+            lat: coord[0],
+            long: coord[1],
+            crime: row.crime
         }
         arr.push(obj);
     }
@@ -140,8 +140,7 @@ router.post('/', function(req, res, next) {
     db.then(
         function(value) {
             //send response to client
-            coords = getCoords(value)
-            res.send({data: countCrimes(value), lat: coords[0], long: coords[1]});
+            res.send({data: countCrimes(value), location: getLocation(value)});
         },
         //in case of an error
         function(error) {
