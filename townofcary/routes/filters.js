@@ -107,20 +107,23 @@ function generateSql(obj){
 }
 
 function getCoords(data){
-    var lat = [];
-    var long = [];
+    var arr = []
     
     for(const row of data){
         //remove space from the location string
         var str = row.location.replace(/\s/g, "");
         //split the string using the semicolon separator
-        var arr = str.split(';');
+        var coords = str.split(';');
         //add values to the arrays
-        lat.push(arr[0]);
-        long.push(arr[1]);
+        var obj = {
+            lat: coords[0],
+            long: coords[1],
+            crime: row.crimes
+        }
+        arr.push(obj);
     }
     
-    return [lat, long];
+    return arr;
 }
 
 // Listens for post requests
