@@ -12,9 +12,10 @@
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 20px 30px;
     transition: 0.3s;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
   }
   
   /* Change background color of buttons on hover */
