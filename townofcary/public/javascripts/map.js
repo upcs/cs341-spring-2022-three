@@ -25,8 +25,14 @@ function ESresize(){
     }
 }
 
-//call immedietly
+//call immedietely
 ESresize();
+
+/*
+Source: stackoverflow
+URL: https://stackoverflow.com/questions/37189484/how-to-add-a-search-box-on-a-leaflet-map
+Use: Add search bar to map
+*/
 
 
 // Adds search bar
@@ -38,6 +44,13 @@ searchControl.on('results', function(data){
     results.addLayer(L.marker(data.results[i].latlng));
   }
 });
+
+/*
+Source: docs.mapbox.com
+URL: https://docs.mapbox.com/mapbox.js/example/v1.0.0/listing-marker-clusters/
+Use: Add markers to map
+Note: map would not load properly with all markers, so needed to implement cluster markers
+*/
 
 //creating a marker cluster group
 var markers = new L.MarkerClusterGroup();
