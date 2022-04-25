@@ -22,3 +22,4 @@ function incidentDrop() {
     }
   }
 }
+module.exports = {incidentDrop: incidentDrop};

@@ -5,7 +5,7 @@
 // Connects to where the table will display in the table
 var table = document.getElementById('mytable');
 // Allows for CSV notation input of data from API
-var tableData = [{crime: 'Murder', quantity: '2'},{crime: 'Larceny', quantity: '5'}];
+var tableData = [];
 // Symbols for changing alphabet order of data
 var caretUpClassName = 'fa fa-caret-up';
 var caretDownClassName = 'fa fa-caret-down';

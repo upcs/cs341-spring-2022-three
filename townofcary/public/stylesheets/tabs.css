@@ -29,10 +29,10 @@
   
   /* Style the tab content */
   .tabcontent {
-    /* color: white; */
-    display: none;
-    /* padding: 100px 20px; */
-    padding: 0%;
-    height: 100%;
+    background-image: url("../images/border.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    padding-bottom: 100px;
+    background-size: 100%;
   }
   
