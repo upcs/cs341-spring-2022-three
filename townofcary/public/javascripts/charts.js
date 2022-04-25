@@ -1,8 +1,4 @@
-
-var xValues = [];
-var yValues = [];
 var pieColors = [];
-
 
 function removeData(chart) {
   chart.data.datasets.pop();
@@ -15,10 +11,11 @@ function addBarData(label, value) {
   var barColor = "rgba(64,144,121, 1.0)";
   
   const newDataset = {
-    label: label,
     data: value,
     backgroundColor: barColor,
   };
+
+  barChart.data.labels = label;
   barChart.data.datasets.push(newDataset);
   barChart.update();
 }
@@ -26,7 +23,7 @@ function addBarData(label, value) {
 //updates donut chart
 function addDonutData(label, value) {
   //assign crimes a random color in the color range of page
-  for(var i = 0; i < tableData.length; i++){
+  for(var i = 0; i < label.length; i++){
     var randomR = Math.floor(Math.random()*8 + 88);
     var randomG = Math.floor(Math.random()*60 + 191);
     var randomB = Math.floor(Math.random()*120 + 118);
@@ -34,10 +31,11 @@ function addDonutData(label, value) {
   }
 
   const newDataset = {
-    label: label,
     data: value,
     backgroundColor: pieColors,
   };
+
+  donutChart.data.labels = label;
   donutChart.data.datasets.push(newDataset);
   donutChart.update();
 }
@@ -47,18 +45,19 @@ function updateChart(){
   removeData(barChart);
   removeData(donutChart);
 
+  var xValues = [];
+  var yValues = [];
+
   for(var i = 0; i < tableData.length; i++){
     xValues[i] = tableData[i].crime;
     yValues[i] = tableData[i].quantity;
   }
 
+  console.log(xValues);
+  console.log(yValues);
+
   addBarData(xValues, yValues);
   addDonutData(xValues, yValues);
-}
-
-for(var i = 0; i < tableData.length; i++){
-  xValues[i] = tableData[i].crime;
-  yValues[i] = tableData[i].quantity;
 }
 
 //assign crimes a random color in the color range of page
@@ -75,10 +74,10 @@ var barColor = "rgba(64,144,121, 1.0)";
 const barChart = new Chart("barChart", {
     type: "bar",
     data: {
-      labels: xValues,
+      labels: ["1"],
       datasets: [{
         backgroundColor: barColor,
-        data: [3 ,4, 5]
+        data: [1]
       }]
     },
     options: { 
@@ -110,10 +109,10 @@ const barChart = new Chart("barChart", {
 const donutChart = new Chart("doughnutChart", {
   type: "doughnut",
   data: {
-    labels: xValues,
+    labels: ["1"],
     datasets: [{
       backgroundColor: pieColors,
-      data: yValues
+      data: [1]
     }]
   },
   options: {

@@ -27,7 +27,6 @@ function sendPostReq(startdate, enddate, crimes){
 
         //load markers onto the map
         updateMarkers(mapData);
-
     });
 }
 
