@@ -1,8 +1,13 @@
 // The two buttons that make the sidebar visible and invisible
 var o = document.getElementById("one");
 var to = document.getElementById("two");
-// Automatically assigns the button that closes the sidebar as invisible
-to.style.display = 'none';
+// Automatically assigns the button that open the sidebar as invisible
+o.style.display = 'none';
+// Assigns 300px of width for the sidebar
+document.getElementById("mySidebar").style.width = "300px";
+// Moves the content 300px over to the right
+document.getElementById("main").style.marginLeft = "300px";
+
 
 function openNav() {
     // Assigns 300px of width for the sidebar
