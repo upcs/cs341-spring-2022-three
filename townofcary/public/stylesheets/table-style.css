@@ -1,10 +1,14 @@
+/* Table borders */
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
   }
+  /* Padding between table headers and data */
   th, td {
     padding: 5px;
   }
+
+  /* Left text alignment for table headers */
   th {
     text-align: left;
   }
