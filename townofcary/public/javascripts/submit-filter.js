@@ -40,7 +40,22 @@ $(document).ready(function(){
         //TODO: implement crime filter
         //crimes are hard coded for now
         //-Ben
-        sendPostReq($("#startdate").val(), $("#enddate").val(), []);
+        
+        try{
+            var checkboxes = $("[type=checkbox]");
+            var crimes = [];
+
+            for(var i = 0; i < checkboxes.length; i++){
+                if(checkboxes[i].checked){
+                    crimes.push(checkboxes[i].value);
+                }
+            }
+
+            sendPostReq($("#startdate").val(), $("#enddate").val(), crimes);
+        }
+        catch(error){
+            console.log(error);
+        }
         
         //This function must return false or the page reloads
         //note: if this function fails to reach this line the page reloads
