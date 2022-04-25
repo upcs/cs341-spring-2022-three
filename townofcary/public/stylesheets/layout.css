@@ -1,7 +1,8 @@
 /*
-    Source of Inspiration:
+    Source:
     https://www.w3schools.com/css/css_grid.asp
 */
+
 /*fonts style*/
   .font1{
     color: rgb(128, 207, 237);
@@ -14,6 +15,7 @@
     font-family: Candara, sans-serif;  
     padding: 0;
   }
+
   h2{
     font-family: Candara, sans-serif;  
     padding-top: 0px;
@@ -25,6 +27,7 @@
     background-position: center;
     background-size: cover; 
   }
+
   .item2 { grid-area: tabs;}
   .item3 { grid-area: table;}
   .item4 { grid-area: map;}
@@ -95,4 +98,40 @@ label {
   height: 100%;
   padding-left: 100px;
   padding-right: 100px;
+}
+
+.check-display {
+  float: left;
+  margin-left: 10px;
+}
+
+input[type="submit"] {
+  background:rgb(64,144,121);
+  color: white;
+  border-style: outset;
+  border-color: rgb(64,144,121);
+  padding-left: 10px;
+  padding-top: 10px;
+  height: 50px;
+  width: 280px;
+  font: bold, 30px arial,sans-serif;
+  text-shadow: none;
+  margin-bottom: 10px;
+}
+
+.submit-row {
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+tr {
+  margin: 30px;
+}
+
+.input {
+  padding-bottom: 10px;
+}
+
+input[type="date"] {
+  margin-bottom: 10px;
 }
