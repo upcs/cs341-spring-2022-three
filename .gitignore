@@ -1,1 +1,32 @@
 / .vs
+
+# ignore all . folders but include . files
+.*/
+townofcary/node_modules/.bin/acorn
+townofcary/node_modules/.bin/browserslist
+townofcary/node_modules/.bin/cleancss
+townofcary/node_modules/.bin/codecov
+townofcary/node_modules/.bin/escodegen
+townofcary/node_modules/.bin/esgenerate
+townofcary/node_modules/.bin/esparse
+townofcary/node_modules/.bin/esvalidate
+townofcary/node_modules/.bin/import-local-fixture
+townofcary/node_modules/.bin/jade
+townofcary/node_modules/.bin/jest
+townofcary/node_modules/.bin/js-yaml
+townofcary/node_modules/.bin/jsesc
+townofcary/node_modules/.bin/json5
+townofcary/node_modules/.bin/mime
+townofcary/node_modules/.bin/mkdirp
+townofcary/node_modules/.bin/node-which
+townofcary/node_modules/.bin/parser
+townofcary/node_modules/.bin/resolve
+townofcary/node_modules/.bin/rimraf
+townofcary/node_modules/.bin/semver
+townofcary/node_modules/.bin/uglifyjs
+townofcary/node_modules/.bin/uuid
+townofcary/node_modules/jest-snapshot/node_modules/.bin/semver
+townofcary/node_modules/jsdom/node_modules/.bin/acorn
+townofcary/node_modules/jsdom/node_modules/acorn-globals/node_modules/.bin/acorn
+townofcary/node_modules/transformers/node_modules/.bin/uglifyjs
+townofcary/node_modules/with/node_modules/.bin/acorn
