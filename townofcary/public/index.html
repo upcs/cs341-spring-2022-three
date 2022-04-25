@@ -40,97 +40,143 @@
         <link rel="stylesheet" href="stylesheets/search-filter.css"></link>
         <link rel="stylesheet" href="stylesheets/sidebar.css"></link>
         <link rel="stylesheet" href="stylesheets/tabs.css"></link>
+        <link rel="stylesheet" href="stylesheets/map.css"></link>
+        <link rel="stylesheet" href="stylesheets/filter-style.css"></link>
     </head>
 
     <body>
-        <div class="grid-container" id="main">
-          <div class="item1">
-            <!-- Title Page Information or Subtitles-->
-            <img style="float: left; width: 150px; padding: 15px;" src="images/logo.png" alt="placeholder" >
-            <h1 class="font1">Cary Police Incident Visualization</h1>
-          </div>
-            <div id="mySidebar" class="sidenav">
-                <form action="" id="filters">
-                  <table>
-                    <tr>
-                      <script src="javascripts/click-drop.js"></script>
-                      <input type="text" id="myInput" class="dropdown" name="crime-type" onkeyup="incidentDrop()" placeholder="Search for incident type..." title="Type in a name"></input>
-                        <ul id="myUL">
-                          <li><a href="#">Aggravated Assault</a></li>
-                          <li><a href="#">Alcohol Offenses</a></li>
-                          <li><a href="#">All Other Offenses</a></li>
-                          <li><a href="#">Arson</a></li>
-                          <li><a href="#">Burglary</a></li>
-                          <li><a href="#">Calls for Service</a></li>
-                          <li><a href="#">Disorderly Conduct</a></li>
-                          <li><a href="#">Drugs</a></li>
-                          <li><a href="#">Drunkeness</a></li>
-                          <li><a href="#">DUI</a></li>
-                          <li><a href="#">Embezzlement</a></li>
-                          <li><a href="#">Forgery</a></li>
-                          <li><a href="#">Fraud</a></li>
-                          <li><a href="#">Gambling</a></li>
-                          <li><a href="#">Larceny</a></li>
-                          <li><a href="#">Missing Person</a></li>
-                          <li><a href="#">Motor Vehicle Theft</a></li>
-                          <li><a href="#">Murder</a></li>
-                          <li><a href="#">Non Criminal Detain</a></li>
-                          <li><a href="#">Non Negligent Traff</a></li>
-                          <li><a href="#">Pornography</a></li>
-                          <li><a href="#">Simple Assault</a></li>
-                          <li><a href="#">Stolen Property</a></li>
-                          <li><a href="#">Suicide</a></li>
-                          <li><a href="#">Traffic Except DWI</a></li>
-                          <li><a href="#">Vandalism</a></li>
-                          <li><a href="#">Weapons</a></li>
-                        </ul>
-                    </tr>
-                    <tr>
-                          <label>Filter Start:
-                            <input type="date" id="startdate" value="2000-01-01" min="2000-01-01" max="2023-01-01">
-                          </label>
-                        </tr>
-                        <tr>
-                          <label>Filter End:
-                            <input type="date" id="enddate" value="2023-01-01" min="2000-01-01" max="2023-01-01">
-                          </label>
-                        </tr>
-                        <tr>
-                          <input type="submit" value="submit">
-                          <script src="javascripts/submit-filter.js"></script>
-                        </tr>
-                      </table>
-                    </form>
-            </div> 
-            <div class="item2">
-              <div class="tab">
-                <button class="tablinks" id="one" onclick="openNav()">≡</button>
-                <button class="tablinks" id="two" onclick="closeNav()">≡</button>
-                <button class="tablinks" onclick="openCity(event, 'Map')" id="defaultOpen">Map</button>
-                <button class="tablinks" onclick="openCity(event, 'Table')">Table</button>
-                <button class="tablinks" onclick="openCity(event, 'Chart')">Chart</button>
-                <script src="javascripts/sidebar.js"></script>
-              </div>
-            </div>  
-            <div class="item4">
-              <div id="Map" class="tabcontent">
+      <div class="grid-container" id="main">
+        <div class="item1">
+          <!-- Title Page Information or Subtitles-->
+          <img style="float: left; width: 150px; padding: 15px;" src="images/logo.png" alt="placeholder" >
+          <h1 class="font1">Cary Police Incident Visualization</h1>
+        </div>
+        <div id="mySidebar" class="sidenav">
+          <form action="" id="filters">
+            <table>
+              <tr>
+                <legend>Incident Types</legend>
+                <input type="checkbox" name="crime-type" value="Aggravated Assault" id="aggravated-assault">
+                <label for="aggravated-assault" style="font-size:20px">Aggravated Assault</label></br>
 
-                <h1>Map</h1>
-                <h2>
-                    <div class="center">
-                        <div id="map"></div>
-                    </div>
-                    <script src="javascripts/map.js"></script> 
-                    
-                </h2>
-                  
-                
+                <input type="checkbox" name="crime-type" value="Alcohol Offenses" id="alcohol-offenses">
+                <label for="alcohol-offenses" style="font-size:20px">Alcohol Offenses</label></br>
+
+                <input type="checkbox" name="crime-type" value="All Other Offenses" id="all-other-offenses">
+                <label for="all-other-offenses" style="font-size:20px">All Other Offenses</label></br>
+
+                <input type="checkbox" name="crime-type" value="Arson" id="arson">
+                <label for="arson" style="font-size:20px">Arson</label></br>
+
+                <input type="checkbox" name="crime-type" value="Burglary" id="burglary">
+                <label for="burglary" style="font-size:20px">Burglary</label></br>
+
+                <input type="checkbox" name="crime-type" value="Calls for Service" id="calls-for-service">
+                <label for="calls-for-service" style="font-size:20px">Calls for Service</label></br>
+
+                <input type="checkbox" name="crime-type" value="Disorderly Conduct" id="disorderly-conduct">
+                <label for="disorderly-conduct" style="font-size:20px">Disorderly Conduct</label></br>
+
+                <input type="checkbox" name="crime-type" value="Drugs" id="drugs">
+                <label for="drugs" style="font-size:20px">Drugs</label></br>
+
+                <input type="checkbox" name="crime-type" value="Drunkeness" id="drunkenness">
+                <label for="drunkeness" style="font-size:20px">Drunkeness</label></br>
+
+                <input type="checkbox" name="crime-type" value="DUI" id="dui">
+                <label for="dui" style="font-size:20px">DUI</label></br>
+
+                <input type="checkbox" name="crime-type" value="Embezzlement" id="embezzlement">
+                <label for="embezzlement" style="font-size:20px">Embezzlement</label></br>
+
+                <input type="checkbox" name="crime-type" value="Forgery" id="forgery">
+                <label for="forgery" style="font-size:20px">Forgery</label></br>
+
+                <input type="checkbox" name="crime-type" value="Fraud" id="fraud">
+                <label for="fraud" style="font-size:20px">Fraud</label></br>
+
+                <input type="checkbox" name="crime-type" value="Gambling" id="gambling">
+                <label for="gambling" style="font-size:20px">Gambling</label></br>
+ 
+                <input type="checkbox" name="crime-type" value="Larceny" id="larceny">
+                <label for="larceny" style="font-size:20px">Larceny</label></br>
+
+                <input type="checkbox" name="crime-type" value="Missing Person" id="missing-person">
+                <label for="missing-person" style="font-size:20px">Missing Person</label></br>
+
+                <input type="checkbox" name="crime-type" value="Motor Vehicle Theft" id="motor-vehicle-theft">
+                <label for="motor-vehicle-theft" style="font-size:20px">Motor Vehicle Theft</label></br>
+
+                <input type="checkbox" name="crime-type" value="Murder" id="murder">
+                <label for="murder" style="font-size:20px">Murder</label></br>
+
+                <input type="checkbox" name="crime-type" value="Non Criminal Detain" id="non-criminal-detain">
+                <label for="non-criminal-detain" style="font-size:20px">Non Criminal Detain</label></br>
+
+                <input type="checkbox" name="crime-type" value="Non Negligent Traff" id="non-negligent-traff">
+                <label for="non-negligent-traff" style="font-size:20px">Non Negligent Traff</label></br>
+
+                <input type="checkbox" name="crime-type" value="Pornography" id="pornography">
+                <label for="pornography" style="font-size:20px">Pornography</label></br>
+
+                <input type="checkbox" name="crime-type" value="Simple Assault" id="simple-assault">
+                <label for="simple-assault" style="font-size:20px">Simple Assault</label></br>
+
+                <input type="checkbox" name="crime-type" value="Stolen Property" id="stolen-property">
+                <label for="stolen-property" style="font-size:20px">Stolen Property</label></br>
+
+                <input type="checkbox" name="crime-type" value="Suicide" id="suicide">
+                <label for="suicide" style="font-size:20px">Suicide</label></br>
+
+                <input type="checkbox" name="crime-type" value="Traffic Except DWI" id="traffic-except-dwi">
+                <label for="traffic-except-dwi" style="font-size:20px">Traffic Except DWI</label>
+
+                <input type="checkbox" name="crime-type" value="Vandalism" id="vandalism">
+                <label for="Vandalism" style="font-size:20px">Vandalism</label></br>
+
+                <input type="checkbox" name="crime-type" value="Weapons" id="weapons">
+                <label for="weapons" style="font-size:20px">Weapons</label>
+              </tr>      
+              <tr>
+                <label>Filter Start:
+                <input type="date" id="startdate" value="2000-01-01" min="2000-01-01" max="2023-01-01">
+                </label>
+              </tr>
+              <tr>
+                <label>Filter End:
+                <input type="date" id="enddate" value="2023-01-01" min="2000-01-01" max="2023-01-01">
+                </label>
+              </tr>
+              <tr>
+                <input type="submit" value="submit">
+                <script src="javascripts/submit-filter.js"></script>
+              </tr>
+            </table>
+          </form>
+        </div> 
+        <div class="item2">
+          <div class="tab">
+            <button class="tablinks" id="one" onclick="openNav()">≡</button>
+            <button class="tablinks" id="two" onclick="closeNav()">≡</button>
+            <button class="tablinks" onclick="openCity(event, 'Map')" id="defaultOpen">Map</button>
+            <button class="tablinks" onclick="openCity(event, 'Table')">Table</button>
+            <button class="tablinks" onclick="openCity(event, 'Chart')">Chart</button>
+            <script src="javascripts/sidebar.js"></script>
+          </div>
+        </div>  
+        <div class="item4">
+          <div id="Map" class="tabcontent">
+            <h1>Map</h1>
+            <div class="mapborder">
+              <div class="mapsection" id="map"></div>
+                <script src="javascripts/map.js"></script>
               </div>
             </div>
-            <div class="item3">
-              <div id="Table" class="tabcontent">
-                <!-- Filtering Table -->
-                <p>Click on the header of a column to sort the table:</p>
+          </div>
+          <div class="item3">
+            <div id="Table" class="tabcontent">
+              <!-- Filtering Table -->
+              <p>Click on the header of a column to sort the table:</p>
               <table>
                 <thead><tr>
                   <th><span id="crime" class="w3-button table-column">Crime Type <i class="caret"></span></th>
@@ -139,26 +185,24 @@
                 <tbody id="mytable"></tbody>
               </table>
               <script src="javascripts/table-filter.js"></script> <!-- Change based on location -->
-              </div>
             </div>
-            <div class="item5">
-              <div id="Chart" class="tabcontent">
-                <h1>Charts</h1>
-                <div class="chartcontainer">
-                  <canvas class="chart1" id="barChart" style="width:100%;max-width:600px"></canvas>
-                  <canvas class="chart2" id="doughnutChart" style="width:100%;max-width:600px"></canvas>
-                </div>
+          </div>
+          <div class="item5">
+            <div id="Chart" class="tabcontent">
+              <h1>Charts</h1>
+              <div class="chartcontainer">
+                <canvas class="chart1" id="barChart" style="width:100%;max-width:600px"></canvas>
+                <canvas class="chart2" id="doughnutChart" style="width:100%;max-width:600px"></canvas>
                 <script src="javascripts/charts.js"></script>
-                
-              </div> 
-            </div>
-            <div class="item6">
-              <div id="AboutUs" class="tabcontent">
-                <h1>About Us</h1>
-                
-              </div> 
-            </div>
-            <script src="javascripts/tabs.js"></script>
-        </div>
+              </div>
+            </div> 
+          </div>
+          <div class="item6">
+            <div id="AboutUs" class="tabcontent">
+              <h1>About Us</h1>
+            </div> 
+          </div>
+        <script src="javascripts/tabs.js"></script>
+      </div>
     </body>
 </html>

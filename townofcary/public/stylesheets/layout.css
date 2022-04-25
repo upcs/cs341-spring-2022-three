@@ -80,15 +80,8 @@ tr:nth-child(even) {
 .chart1,
 .chart2 {
   width: 50%;
-  padding-left: 50px;
-  padding-right: 50px;
 }
 
-#map { position:relative; top:0; bottom: 0; height:500px; }
-
-.center {
-  text-align: center;
-  height: 100%;
-  padding-left: 100px;
-  padding-right: 100px;
+label {
+  text-align: left;
 }
