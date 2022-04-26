@@ -23,12 +23,12 @@ test('test hamburger button functionality', () => {
     var sb = document.getElementById("mySidebar");
     var m = document.getElementById("main");
     //make sure the buttons are initialized correctly
-    expect(button1.style.display).toBe('');
-    expect(button2.style.display).toBe('none');
+    expect(button1.style.display).toBe('none');
+    expect(button2.style.display).toBe('');
 
     //make sure the sidebar and main are initialized correctly
-    expect(sb.style.width).toBe('');
-    expect(m.style.marginLeft).toBe('');
+    expect(sb.style.width).toBe('300px');
+    expect(m.style.marginLeft).toBe('300px');
 
     //opening the sidebar when its closed
     openNav();

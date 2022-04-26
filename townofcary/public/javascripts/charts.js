@@ -1,3 +1,4 @@
+//const { tableData } = require("./table-filter");
 var pieColors = [];
 
 function removeData(chart) {
@@ -52,9 +53,6 @@ function updateChart(){
     xValues[i] = tableData[i].crime;
     yValues[i] = tableData[i].quantity;
   }
-
-  console.log(xValues);
-  console.log(yValues);
 
   addBarData(xValues, yValues);
   addDonutData(xValues, yValues);
@@ -122,3 +120,5 @@ const donutChart = new Chart("doughnutChart", {
     }
   }
 });
+
+module.exports = {updateChart: updateChart};

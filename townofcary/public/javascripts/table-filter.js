@@ -87,3 +87,9 @@ for (let column of tableColumns) {
     toggleArrow(event);
   });
 }
+
+module.exports = {
+  tableData: tableData,
+  toggleArrow: toggleArrow,
+  populateTable: populateTable
+};
